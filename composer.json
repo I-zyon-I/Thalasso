@@ -1,0 +1,13 @@
+{   
+    "name": "vendor/thalasso",
+    "description": "Porjet de Bloc B",
+    "require": {
+        "fakerphp/faker": "^1.13"
+    },
+    "authors": [
+        {
+            "name": "ArnaudL",
+            "email": "a_laillet@hotmail.fr"
+        }
+    ]
+}
