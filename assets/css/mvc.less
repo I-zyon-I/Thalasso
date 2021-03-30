@@ -1,0 +1,92 @@
+/* ---Fonction et variables Less--- */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+@blanc: #E0F2F1;
+@texte: #5B5353;
+.blur(@w){
+	filter: blur(@w);
+    	-webkit-filter: blur(@w); 
+    	-moz-filter: blur(@w);
+    	-o-filter: blur(@w);
+		-ms-filter: blur(@w);
+}
+.block(){
+    border-radius: 10px;
+    box-shadow: 0px 0px rgba(0,0,0,0.3);
+}
+
+
+/* ---Body & Général--- */
+body{
+    font-family: 'Lobster', cursive;
+    font-size: 16px;
+}
+h3,h6{
+    color: @blanc;
+}
+h1{
+    color: @texte;
+}
+
+
+
+/* ---Navbar--- */
+nav{
+    
+    background: rgb(178,223,219);
+    background: linear-gradient(0deg, rgba(178,223,219,1) 0%, rgba(7,140,127,1) 100%); 
+}
+.navbar{
+    position: fixed;
+    top: 0px;
+}
+nav img{
+    width: 50%;
+}
+.meteo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.meteo img{
+    width:7.5%;
+}
+
+
+/* ---Footer--- */
+footer{
+    background: rgb(178,223,219);
+    background: linear-gradient(180deg, rgba(178,223,219,1) 0%, rgba(7,140,127,1) 100%);
+    position: fixed;
+    width: 100%; 
+    bottom: 0px;
+    text-align: center;
+}
+
+
+
+/* ---Header--- */
+
+.blur{
+    position: absolute;
+    
+    width: 100%;
+    height: 1200px;
+    background: url(../imgs/nakedwomen.jpeg);
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    z-index: -1;
+    
+}
+
+.head-img{
+    padding:100px 0px;
+    p{
+        padding:50px;
+    }
+}
+
+
+

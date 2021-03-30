@@ -30,6 +30,6 @@ $pdo = new PDO('sqlite:' . $bddPath, null, null, [
 // ]);
 // $bddPath = Helper::pathCreate("serveur", ["bdd-sqlite"]) . $bdd;
 
-echo var_dump($pdo);
+
 
 ?>

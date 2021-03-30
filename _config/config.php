@@ -25,21 +25,21 @@ define("PATH_FOR_PHP", substr($_SERVER['SCRIPT_FILENAME'], 0, -9));
 define("PATH_FOR_HTML", substr($_SERVER['PHP_SELF'], 0, -9));
 
 // Website informations
-// define("WEBSITE_NAME", "MVC");
-// define("WEBSITE_URL", "https://monsite.com");
-// define("WEBSITE_DESCRIPTION", "Description du site");
-// define("WEBSITE_LANGUAGE", "fr");
-// define("WEBSITE_AUTHOR", "ROGER CAUCHON");
-// define("WEBSITE_AUTHOR_MAIL", "caucroge.dev@gmail.com");
+define("WEBSITE_NAME", "Thalass'eau");
+define("WEBSITE_URL", "https://monsite.com");
+define("WEBSITE_DESCRIPTION", "Description du site");
+define("WEBSITE_LANGUAGE", "fr");
+define("WEBSITE_AUTHOR", "ROGER CAUCHON");
+define("WEBSITE_AUTHOR_MAIL", "caucroge.dev@gmail.com");
 
 // Facebook Open Graph tags
-// define("WEBSITE_FACEBOOK_NAME", "");
-// define("WEBSITE_FACEBOOK_DESCRIPTION", "");
-// define("WEBSITE_FACEBOOK_URL", "");
-// define("WEBSITE_FACEBOOK_IMAGE", "");
+define("WEBSITE_FACEBOOK_NAME", "");
+define("WEBSITE_FACEBOOK_DESCRIPTION", "");
+define("WEBSITE_FACEBOOK_URL", "");
+define("WEBSITE_FACEBOOK_IMAGE", "");
 
 // DataBase informations
 // define("DATABASE_HOST", "localhost");
-define("DATABASE_NAME", "thalasso");
+//define("DATABASE_NAME", "thalasso");
 // define("DATABASE_USER", "root");
 // define("DATABASE_PASSWORD", "");
