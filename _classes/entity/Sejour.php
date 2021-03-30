@@ -24,17 +24,15 @@ class Sejour {
 
     /**
      * Get the value of idSejour
-     */ 
-    public function getIdSejour()
-    {
+     */
+    public function getIdSejour() {
         return $this->idSejour;
     }
 
     /**
      * Get the value of dateDebut
-     */ 
-    public function getDateDebut()
-    {
+     */
+    public function getDateDebut() {
         return $this->dateDebut;
     }
 
@@ -42,9 +40,8 @@ class Sejour {
      * Set the value of dateDebut
      *
      * @return  self
-     */ 
-    public function setDateDebut($dateDebut)
-    {
+     */
+    public function setDateDebut($dateDebut) {
         $this->dateDebut = $dateDebut;
 
         return $this;
@@ -52,9 +49,8 @@ class Sejour {
 
     /**
      * Get the value of dureeSejour
-     */ 
-    public function getDureeSejour()
-    {
+     */
+    public function getDureeSejour() {
         return $this->dureeSejour;
     }
 
@@ -62,9 +58,8 @@ class Sejour {
      * Set the value of dureeSejour
      *
      * @return  self
-     */ 
-    public function setDureeSejour($dureeSejour)
-    {
+     */
+    public function setDureeSejour($dureeSejour) {
         $this->dureeSejour = $dureeSejour;
 
         return $this;
@@ -72,9 +67,8 @@ class Sejour {
 
     /**
      * Get the value of vestiaire
-     */ 
-    public function getVestiaire()
-    {
+     */
+    public function getVestiaire() {
         return $this->vestiaire;
     }
 
@@ -82,9 +76,8 @@ class Sejour {
      * Set the value of vestiaire
      *
      * @return  self
-     */ 
-    public function setVestiaire($vestiaire)
-    {
+     */
+    public function setVestiaire($vestiaire) {
         $this->vestiaire = $vestiaire;
 
         return $this;
@@ -92,9 +85,8 @@ class Sejour {
 
     /**
      * Get the value of statut
-     */ 
-    public function getStatut()
-    {
+     */
+    public function getStatut() {
         return $this->statut;
     }
 
@@ -102,9 +94,8 @@ class Sejour {
      * Set the value of statut
      *
      * @return  self
-     */ 
-    public function setStatut($statut)
-    {
+     */
+    public function setStatut($statut) {
         $this->statut = $statut;
 
         return $this;
@@ -112,9 +103,8 @@ class Sejour {
 
     /**
      * Get the value of idClient
-     */ 
-    public function getIdClient()
-    {
+     */
+    public function getIdClient() {
         return $this->idClient;
     }
 
@@ -122,9 +112,8 @@ class Sejour {
      * Set the value of idClient
      *
      * @return  self
-     */ 
-    public function setIdClient($idClient)
-    {
+     */
+    public function setIdClient($idClient) {
         $this->idClient = $idClient;
 
         return $this;

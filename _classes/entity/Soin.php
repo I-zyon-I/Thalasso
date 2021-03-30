@@ -19,17 +19,15 @@ class Soin {
 
     /**
      * Get the value of idSoin
-     */ 
-    public function getIdSoin()
-    {
+     */
+    public function getIdSoin() {
         return $this->idSoin;
     }
 
     /**
      * Get the value of nomSoin
-     */ 
-    public function getNomSoin()
-    {
+     */
+    public function getNomSoin() {
         return $this->nomSoin;
     }
 
@@ -37,9 +35,8 @@ class Soin {
      * Set the value of nomSoin
      *
      * @return  self
-     */ 
-    public function setNomSoin($nomSoin)
-    {
+     */
+    public function setNomSoin($nomSoin) {
         $this->nomSoin = $nomSoin;
 
         return $this;
@@ -47,9 +44,8 @@ class Soin {
 
     /**
      * Get the value of dureeSoin
-     */ 
-    public function getDureeSoin()
-    {
+     */
+    public function getDureeSoin() {
         return $this->dureeSoin;
     }
 
@@ -57,9 +53,8 @@ class Soin {
      * Set the value of dureeSoin
      *
      * @return  self
-     */ 
-    public function setDureeSoin($dureeSoin)
-    {
+     */
+    public function setDureeSoin($dureeSoin) {
         $this->dureeSoin = $dureeSoin;
 
         return $this;
@@ -67,9 +62,8 @@ class Soin {
 
     /**
      * Get the value of idEspace
-     */ 
-    public function getIdEspace()
-    {
+     */
+    public function getIdEspace() {
         return $this->idEspace;
     }
 }

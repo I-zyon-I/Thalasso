@@ -18,49 +18,43 @@ class Client {
 
     /**
      * Get the value of idClient
-     */ 
-    public function getIdClient()
-    {
+     */
+    public function getIdClient() {
         return $this->idClient;
     }
 
     /**
      * Get the value of nomClient
-     */ 
-    public function getNomClient()
-    {
+     */
+    public function getNomClient() {
         return $this->nomClient;
     }
-    
+
     /**
      * Set the value of nomClient
      *
      * @return  self
-     */ 
-    public function setNomClient($nomClient)
-    {
+     */
+    public function setNomClient($nomClient) {
         $this->nomClient = $nomClient;
 
         return $this;
     }
     /**
      * Get the value of nomClient
-     */ 
-    public function getPrenomClient()
-    {
+     */
+    public function getPrenomClient() {
         return $this->prenomClient;
     }
-    
+
     /**
      * Set the value of nomClient
      *
      * @return  self
-     */ 
-    public function setPrenomClient($prenomClient)
-    {
+     */
+    public function setPrenomClient($prenomClient) {
         $this->prenomClient = $prenomClient;
 
         return $this;
     }
-  
 }

@@ -16,17 +16,15 @@ class Espace {
 
     /**
      * Get the value of idEspace
-     */ 
-    public function getIdEspace()
-    {
+     */
+    public function getIdEspace() {
         return $this->idEspace;
     }
 
     /**
      * Get the value of nomEspace
-     */ 
-    public function getNomEspace()
-    {
+     */
+    public function getNomEspace() {
         return $this->nomEspace;
     }
 
@@ -34,9 +32,8 @@ class Espace {
      * Set the value of nomEspace
      *
      * @return  self
-     */ 
-    public function setNomEspace($nomEspace)
-    {
+     */
+    public function setNomEspace($nomEspace) {
         $this->nomEspace = $nomEspace;
 
         return $this;

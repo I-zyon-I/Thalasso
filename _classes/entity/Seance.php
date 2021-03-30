@@ -17,25 +17,22 @@ class Seance {
 
     /**
      * Get the value of idSoin
-     */ 
-    public function getIdSoin()
-    {
+     */
+    public function getIdSoin() {
         return $this->idSoin;
     }
 
     /**
      * Get the value of idSejour
-     */ 
-    public function getIdSejour()
-    {
+     */
+    public function getIdSejour() {
         return $this->idSejour;
     }
 
     /**
      * Get the value of statut
-     */ 
-    public function getStatut()
-    {
+     */
+    public function getStatut() {
         return $this->statut;
     }
 
@@ -43,9 +40,8 @@ class Seance {
      * Set the value of statut
      *
      * @return  self
-     */ 
-    public function setStatut($statut)
-    {
+     */
+    public function setStatut($statut) {
         $this->statut = $statut;
 
         return $this;
