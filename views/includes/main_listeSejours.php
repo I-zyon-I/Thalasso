@@ -1,6 +1,6 @@
 <div class="container">
     <h1>Liste des séjours</h1>
-
+    <div class="bloc">
     <!-- Liste des dossiers -->
     <?php
     // Test de l'existence des dossiers
@@ -19,7 +19,7 @@
             $dateFin = date('d/m/Y', strtotime("$sejour->dateDebutSejour +$sejour->dureeJourSejour day"));
             $nomUpper = strtoupper($sejour->nomClient);
             echo <<<HTML
-                <div class="accordion-item">
+                <div class="accordion-item light">
                     <h2 class="accordion-header" id="heading$id">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse$id" aria-expanded="false" aria-controls="collapse$id">
                             [$sejour->statutSejour] Dossier n° $id : $nomUpper $sejour->prenomClient (début de séjour : $dateDebut, durée : $sejour->dureeJourSejour jour(s))
@@ -56,7 +56,7 @@ HTML;
             } else {
                 echo "Aucune séance<br>";
             }
-            echo "<a class='btn btn-primary mt-2' href='?page=afficheSejour&id=$id'>Afficher</a></div></div></div>";
+            echo "<a class='btn button mt-2' href='?page=afficheSejour&id=$id'>Afficher</a></div></div></div>";
         $i++;
         }
         echo "</div>";
@@ -77,13 +77,13 @@ HTML;
         <nav aria-label="Page navigation example" class="mt-2">
             <ul class="pagination justify-content-center">
                 <li class="page-item$prevClass">
-                    <a class="page-link" href="?page=listeSejours&paging=$previous">Previous</a>
+                    <a class="page-link" href="?page=listeSejours&paging=$previous">Précédent</a>
                 </li>
                 <li class="page-item disabled">
                     <a class="page-link" aria-disabled="true">Page $paging / $total</a>
                 </li>
                 <li class="page-item$nextClass">
-                    <a class="page-link" href="?page=listeSejours&paging=$next">Next</a>
+                    <a class="page-link" href="?page=listeSejours&paging=$next">Suivant</a>
                 </li>
             </ul>
         </nav>
@@ -92,4 +92,5 @@ HTML;
         echo "Aucun séjour";
     }
     ?>
+    </div>
 </div>

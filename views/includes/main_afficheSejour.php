@@ -10,32 +10,33 @@
     echo <<<HTML
         <div class="container">
         <h1>Fiche séjour</h1>
-            <div class="card mb-2">
-                <div class="card-body">
-                    <h5 class="card-title">Client :</h5>
-                    Client n° $sejour->idClient<br>
-                    Nom : $nomUpper<br>
-                    Prénom : $sejour->prenomClient<br>
-                    Date de naissance : $dateNaissance<br>
-                    Email : $sejour->mailClient<br>
-                    <a class='btn btn-primary mt-2' href='?page=affichClient&id=$idClient'>Afficher</a>
-                    <a class='btn btn-primary mt-2' href='?page=editClient&id=$idClient'>Modifier</a>
+            <div class="bloc">
+                <div class="card article mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Client :</h5>
+                        Client n° $sejour->idClient<br>
+                        Nom : $nomUpper<br>
+                        Prénom : $sejour->prenomClient<br>
+                        Date de naissance : $dateNaissance<br>
+                        Email : $sejour->mailClient<br>
+                        <a class='btn button mt-2' href='?page=afficheClient&id=$idClient'>Afficher</a>
+                        <a class='btn button mt-2' href='?page=editClient&id=$idClient'>Modifier</a>
+                    </div>
                 </div>
-            </div>
-            <div class="card mb-2">
-                <div class="card-body">
-                    <h5 class="card-title">Séjour :</h5>
-                    Dossier n° $sejour->idSejour<br>
-                    Début : $dateDebut<br>
-                    Durée : $sejour->dureeJourSejour jour(s) (fin : $dateFin)<br>
-                    Vestiaire n° $sejour->vestiaireSejour<br>
-                    Statut : $sejour->statutSejour<br>
-                    <a class='btn btn-primary mt-2' href='?page=editSejour&id=$idSejour'>Modifier</a>
+                <div class="card article mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Séjour :</h5>
+                        Dossier n° $sejour->idSejour<br>
+                        Début : $dateDebut<br>
+                        Durée : $sejour->dureeJourSejour jour(s) (fin : $dateFin)<br>
+                        Vestiaire n° $sejour->vestiaireSejour<br>
+                        Statut : $sejour->statutSejour<br>
+                        <a class='btn button mt-2' href='?page=editSejour&id=$idSejour'>Modifier</a>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Séance(s) :</h5>
+                <div class="card article">
+                    <div class="card-body">
+                        <h5 class="card-title">Séance(s) :</h5>
 HTML;
                     
     // Test de l'existence de séances dans le dossier
@@ -56,6 +57,6 @@ HTML;
     } else {
         echo "Aucune séance<br>";
     }
-    echo "<a class='btn btn-primary mt-2' href='?page=editSeance&id=$idSejour'>Modifier</a>";
-    echo "<a class='btn btn-primary mt-2' href='?page=creerSeance&id=$idSejour'>Ajouter</a>";
-    echo "</div></div></div>";
+    echo "<a class='btn button mt-2' href='?page=editSeance&id=$idSejour'>Modifier</a>";
+    echo "<a class='btn button mt-2' href='?page=creerSeance&id=$idSejour'>Ajouter</a>";
+    echo "</div></div></div></div>";
