@@ -38,5 +38,4 @@ $allpages = scandir("controllers/");
     // echo "Page demandée non disponible : erreur 404";
 // }
 
-
 ?>
