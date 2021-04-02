@@ -39,23 +39,23 @@ class SejourRepository {
                 $strStatut = "('" . implode("', '", $arrStatut) . "')";
             }
             return $this->pdo->query("SELECT
-            sj.idSejour AS idSejour,
-            sj.dateDebutSejour AS dateDebutSejour,
-            sj.dureeJourSejour AS dureeJourSejour,
-            sj.vestiaireSejour AS vestiaireSejour,
-            sj.statutSejour AS statutSejour,
-            cl.nomClient AS nomClient,
-            cl.prenomClient AS prenomClient,
-            cl.naissanceClient AS naissanceClient,
-            cl.mailClient AS mailClient
-        FROM sejour AS sj
-            INNER JOIN client AS cl
-                ON sj.idClient = cl.idClient
-        WHERE statutSejour IN $strStatut
-        ORDER BY
-            sj.dateDebutSejour ASC,
-            sj.idSejour ASC
-        LIMIT $offset, 10;");
+                sj.idSejour AS idSejour,
+                sj.dateDebutSejour AS dateDebutSejour,
+                sj.dureeJourSejour AS dureeJourSejour,
+                sj.vestiaireSejour AS vestiaireSejour,
+                sj.statutSejour AS statutSejour,
+                cl.nomClient AS nomClient,
+                cl.prenomClient AS prenomClient,
+                cl.naissanceClient AS naissanceClient,
+                cl.mailClient AS mailClient
+            FROM sejour AS sj
+                INNER JOIN client AS cl
+                    ON sj.idClient = cl.idClient
+            WHERE statutSejour IN $strStatut
+            ORDER BY
+                sj.dateDebutSejour ASC,
+                sj.idSejour ASC
+            LIMIT $offset, 10;");
         } catch (PDOException $e) {
             echo "Erreur Query sur : " . $e->getMessage();
         }

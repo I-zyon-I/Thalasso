@@ -6,11 +6,15 @@ class Client {
     protected $idClient;
     protected $nomClient;
     protected $prenomClient;
+    protected $naissanceClient;
+    protected $mailClient;
 
     // Constructeur
-    public function __construct(string $nomClient, string $prenomClient) {
+    public function __construct(string $nomClient, string $prenomClient, string $naissanceClient, string $mailClient) {
         $this->nomClient = $nomClient;
         $this->prenomClient = $prenomClient;
+        $this->naissanceClient = $naissanceClient;
+        $this->mailClient = $mailClient;
     }
 
 
