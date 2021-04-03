@@ -10,13 +10,13 @@ class Client {
     protected $mailClient;
 
     // Constructeur
-    public function __construct(string $nomClient, string $prenomClient, string $naissanceClient, string $mailClient) {
+    public function __construct(?int $idClient, string $nomClient, string $prenomClient, string $naissanceClient, string $mailClient) {
+        $this->idClient = $idClient;
         $this->nomClient = $nomClient;
         $this->prenomClient = $prenomClient;
         $this->naissanceClient = $naissanceClient;
         $this->mailClient = $mailClient;
     }
-
 
     // Getter & Setter
 
@@ -41,7 +41,6 @@ class Client {
      */
     public function setNomClient($nomClient) {
         $this->nomClient = $nomClient;
-
         return $this;
     }
     /**
@@ -58,7 +57,40 @@ class Client {
      */
     public function setPrenomClient($prenomClient) {
         $this->prenomClient = $prenomClient;
+        return $this;
+    }
 
+    /**
+     * Get the value of naissanceClient
+     */
+    public function getNaissanceClient() {
+        return $this->naissanceClient;
+    }
+
+    /**
+     * Set the value of naissanceClient
+     *
+     * @return  self
+     */
+    public function setNaissanceClient($naissanceClient) {
+        $this->naissanceClient = $naissanceClient;
+        return $this;
+    }
+
+    /**
+     * Get the value of mailClient
+     */
+    public function getMailClient() {
+        return $this->mailClient;
+    }
+
+    /**
+     * Set the value of mailClient
+     *
+     * @return  self
+     */
+    public function setMailClient($mailClient) {
+        $this->mailClient = $mailClient;
         return $this;
     }
 }

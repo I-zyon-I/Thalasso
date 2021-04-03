@@ -30,6 +30,16 @@ class SejourRepository {
         }
     }
 
+    public function findByClient($idClient) {
+        try {
+            return $this->pdo->query("SELECT *
+                FROM sejour
+                WHERE idClient = $idClient;");
+        } catch (PDOException $e) {
+            echo "Erreur Query sur : " . $e->getMessage();
+        }
+    }
+
     public function listeSejours($paging, ?array $arrStatut) {
         try {
             $offset = ($paging - 1) * 10;

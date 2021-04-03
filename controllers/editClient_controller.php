@@ -2,24 +2,24 @@
 
 $clientRepository = new ClientRepository($pdo);
 
+// Récupération des informations client si l'idClient est présent dans l'URL
 if (isset($_GET['id'])) {
     $idClient = $_GET['id'];
-    $client = $clientRepository->findBy($idClient)->fetch();
-    // $client = $clientRepository->findBy($_GET['id'])->fetch();
+    $client = $clientRepository->findByClient($idClient)->fetch();
 }
-//  else {
-    //     $lastIdClient = $clientRepository->getLast()->fetch();
-    //     $idClient = $lastIdClient->lastIdClient + 1;
-    // }
-    
+
+// Modification de la BDD lors de la soumission du formulaire
 if (isset($_POST['submitEdit'])) {
+
+    // Création de l'objet client à partir des éléments du formulaire
+    $client = new Client(isset($_GET['id']) ? $_GET['id'] : null, $_POST['nomClient'], $_POST['prenomClient'], $_POST['naissanceClient'], $_POST['mailClient']);
+
+    // Appel de la méthode de modification en fonction de la création ou de la modification d'un client
     if ($_POST['requete'] == 'update') {
-        // var_dump($_POST['requete']); die;
-        $clientRepository->update($_GET['id'], $_POST['nomClient'], $_POST['prenomClient'], $_POST['naissanceClient'], $_POST['mailClient']);
+        $clientRepository->update($client);
     } elseif ($_POST['requete'] == 'insert') {
-        $clientRepository->insert($_POST['nomClient'], $_POST['prenomClient'], $_POST['naissanceClient'], $_POST['mailClient']);
+        $clientRepository->insert($client);
         $idClient = $clientRepository->lastInsert();
-        // var_dump($idClient);
     }
     header("location:?page=afficheClient&id=$idClient");
 }

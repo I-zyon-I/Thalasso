@@ -18,7 +18,7 @@ class ClientRepository {
         }
     }
 
-    public function findBy($idClient) {
+    public function findByClient($idClient) {
         try {
             return $this->pdo->query("SELECT * FROM client WHERE idClient = $idClient;");
         } catch (PDOException $e) {
@@ -26,28 +26,20 @@ class ClientRepository {
         }
     }
 
-    // public function getLast() {
-    //     try {
-    //         return $this->pdo->query("SELECT MAX(idClient) AS lastIdClient from client");
-    //     } catch (PDOException $e) {
-    //         echo "Erreur Query sur : " . $e->getMessage();
-    //     }
-    // }
-
-    public function update($idClient, $nomClient, $prenomClient, $naissanceClient, $mailClient) {
+    public function update(Client $client) {
         try {
             $sql = "UPDATE client
-            SET nomClient = " . $nomClient . ",
-            prenomClient = :prenomClient,
-            naissanceClient = :naissanceClient,
-            mailClient = :mailClient
-            WHERE idClient = :idClient;";
+                SET nomClient = :nomClient,
+                    prenomClient = :prenomClient,
+                    naissanceClient = :naissanceClient,
+                    mailClient = :mailClient
+                WHERE idClient = :idClient;";
             $data = [
-                ':idClient' => $idClient,
-                ':nomClient' => $nomClient,
-                ':prenomClient' => $prenomClient,
-                ':naissanceClient' => $naissanceClient,
-                ':mailClient' => $mailClient
+                ':idClient' => $client->getIdClient(),
+                ':nomClient' => $client->getNomClient(),
+                ':prenomClient' => $client->getPrenomClient(),
+                ':naissanceClient' => $client->getNaissanceClient(),
+                ':mailClient' => $client->getMailClient()
             ];
             return $this->pdo->prepare($sql)->execute($data);
         } catch (PDOException $e) {
@@ -55,18 +47,17 @@ class ClientRepository {
         }
     }
 
-    public function insert($nomClient, $prenomClient, $naissanceClient, $mailClient) {
+    public function insert(Client $client) {
         try {
             $sql = "INSERT INTO client (nomClient, prenomClient, naissanceClient, mailClient)
-            VALUES (:nomClient, :prenomClient, :naissanceClient, :mailClient);";
+                VALUES (:nomClient, :prenomClient, :naissanceClient, :mailClient);";
             $data = [
-                ':nomClient' => $nomClient,
-                ':prenomClient' => $prenomClient,
-                ':naissanceClient' => $naissanceClient,
-                ':mailClient' => $mailClient
+                ':nomClient' => $client->getNomClient(),
+                ':prenomClient' => $client->getPrenomClient(),
+                ':naissanceClient' => $client->getNaissanceClient(),
+                ':mailClient' => $client->getMailClient()
             ];
             return $this->pdo->prepare($sql)->execute($data);
-            // return $this->pdo->prepare($sql)->execute();
         } catch (PDOException $e) {
             echo "Erreur Query sur : " . $e->getMessage();
         }

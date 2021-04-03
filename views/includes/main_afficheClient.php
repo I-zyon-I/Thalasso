@@ -35,29 +35,5 @@
                     <a class='btn btn-primary mt-2' href='?page=editSejour&id=$idSejour'>Modifier</a> -->
                 </div>
             </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Séance(s) :</h5>
-HTML; die;
-                    
-    // Test de l'existence de séances dans le dossier
-    if ($seances) {
-                        
-        // Affichage des séances
-        $jour = "";
-        foreach ($seances as $seance) {
-            
-            // Création d'une ligne 'date' pour chaque nouvelle journée
-            if ($seance->dateSeance != $jour) {
-                echo date('d/m/Y', strtotime($seance->dateSeance)) . "<br>" ;
-            }
-            
-            echo date('H:i', strtotime($seance->heureSeance)) . " : $seance->nomSoin ($seance->dureeMinuteSoin min), espace $seance->nomEspace ($seance->statutSeance)<br>";
-            $jour = $seance->dateSeance;
-        }
-    } else {
-        echo "Aucune séance<br>";
-    }
-    echo "<a class='btn btn-primary mt-2' href='?page=editSeance&id=$idSejour'>Modifier</a>";
-    echo "<a class='btn btn-primary mt-2' href='?page=creerSeance&id=$idSejour'>Ajouter</a>";
-    echo "</div></div></div>";
+HTML;
+    echo "</div>";
