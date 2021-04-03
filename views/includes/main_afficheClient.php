@@ -27,6 +27,7 @@
             <div class="card mb-2">
                 <div class="card-body">
                     <h5 class="card-title">Séjour :</h5>
+                    <!-- Coucou -->
                     <!-- Dossier n° $sejour->idSejour<br>
                     Début : $dateDebut<br>
                     Durée : $sejour->dureeJourSejour jour(s) (fin : $dateFin)<br>
