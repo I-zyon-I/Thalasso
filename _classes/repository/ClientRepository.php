@@ -12,15 +12,21 @@ class ClientRepository {
     // Méthode
     public function findAll() {
         try {
-            return $this->pdo->query("select * from Client");
+            return $this->pdo->query("SELECT * FROM client");
         } catch (PDOException $e) {
             echo "Erreur Query sur : " . $e->getMessage();
         }
     }
 
-    public function findByClient($idClient) {
+    public function findByClient(string $idClient) {
         try {
-            return $this->pdo->query("SELECT * FROM client WHERE idClient = $idClient;");
+            // $sql = "SELECT * FROM client WHERE idClient = :idClient;";
+            $sql = "SELECT * FROM client WHERE idClient = $idClient;";
+            // $data = [
+            //     ':idClient' => $idClient
+            // ];
+            // return $this->pdo->prepare($sql)->execute($data);
+            return $this->pdo->query($sql);
         } catch (PDOException $e) {
             echo "Erreur Query sur : " . $e->getMessage();
         }

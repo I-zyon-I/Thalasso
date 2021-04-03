@@ -1,13 +1,11 @@
-
-<header>
-    <div class="blur"></div>
+<header> 
     <div class="header g-0 justify-content-center">
         <div class="head-img col-4 offset-1">
             <img src="../../assets/imgs/logo.svg" alt="logo">
-            <h1 class="text-center">Lorem Ipsum</h1>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                Autem nulla sapiente excepturi accusamus ex inventore saepe illo maxime,
-                non incidunt corrupti mollitia voluptatibus, ea aliquam, quo repellat unde quis. Repellat!
+            <h1 class="text-center">Votre source de bien-être</h1>
+            <p>Thalass'eau est une entreprise spécialisée de l'univers du bien-être, de la thérapie par le massage et la relaxation. 
+            Fort d'une équipe de MBE diplômés d'Etat (Masseur bien-être),les soins et massages proposés sont de haute qualité et adaptés à chaque personne. 
+            Le massage bien-être agit principalement sur le plan physique, soulageant les éventuelles gênes chez le patient et éliminant le stress de façon naturelle. 
             </p>
         </div>
     </div>
