@@ -4,19 +4,19 @@ class Sejour {
 
     // Attributs
     protected $idSejour;
-    protected $dateDebut;
-    protected $dureeSejour;
-    protected $vestiaire;
-    protected $statut;
+    protected $dateDebutSejour;
+    protected $dureeJourSejour;
+    protected $vestiaireSejour;
+    protected $statutSejour;
     protected $idClient;
 
     // Constructeur
-    public function __construct(?string $idSejour, int $dateDebut, int $dureeSejour, int $vestiaire, string $statut, int $idClient) {
+    public function __construct(?string $idSejour, string $dateDebutSejour, int $dureeJourSejour, int $vestiaireSejour, string $statutSejour, int $idClient) {
         $this->idSejour = $idSejour;
-        $this->dateDebut = $dateDebut;
-        $this->dureeSejour = $dureeSejour;
-        $this->vestiaire = $vestiaire;
-        $this->statut = $statut;
+        $this->dateDebutSejour = $dateDebutSejour;
+        $this->dureeJourSejour = $dureeJourSejour;
+        $this->vestiaireSejour = $vestiaireSejour;
+        $this->statutSejour = $statutSejour;
         $this->idClient = $idClient;
     }
 
@@ -30,74 +30,75 @@ class Sejour {
         return $this->idSejour;
     }
 
+
     /**
-     * Get the value of dateDebut
+     * Get the value of dateDebutSejour
      */
-    public function getDateDebut() {
-        return $this->dateDebut;
+    public function getDateDebutSejour() {
+        return $this->dateDebutSejour;
     }
 
     /**
-     * Set the value of dateDebut
+     * Set the value of dateDebutSejour
      *
      * @return  self
      */
-    public function setDateDebut($dateDebut) {
-        $this->dateDebut = $dateDebut;
+    public function setDateDebutSejour($dateDebutSejour) {
+        $this->dateDebutSejour = $dateDebutSejour;
 
         return $this;
     }
 
     /**
-     * Get the value of dureeSejour
+     * Get the value of dureeJourSejour
      */
-    public function getDureeSejour() {
-        return $this->dureeSejour;
+    public function getDureeJourSejour() {
+        return $this->dureeJourSejour;
     }
 
     /**
-     * Set the value of dureeSejour
+     * Set the value of dureeJourSejour
      *
      * @return  self
      */
-    public function setDureeSejour($dureeSejour) {
-        $this->dureeSejour = $dureeSejour;
+    public function setDureeJourSejour($dureeJourSejour) {
+        $this->dureeJourSejour = $dureeJourSejour;
 
         return $this;
     }
 
     /**
-     * Get the value of vestiaire
+     * Get the value of vestiaireSejour
      */
-    public function getVestiaire() {
-        return $this->vestiaire;
+    public function getVestiaireSejour() {
+        return $this->vestiaireSejour;
     }
 
     /**
-     * Set the value of vestiaire
+     * Set the value of vestiaireSejour
      *
      * @return  self
      */
-    public function setVestiaire($vestiaire) {
-        $this->vestiaire = $vestiaire;
+    public function setVestiaireSejour($vestiaireSejour) {
+        $this->vestiaireSejour = $vestiaireSejour;
 
         return $this;
     }
 
     /**
-     * Get the value of statut
+     * Get the value of statutSejour
      */
-    public function getStatut() {
-        return $this->statut;
+    public function getStatutSejour() {
+        return $this->statutSejour;
     }
 
     /**
-     * Set the value of statut
+     * Set the value of statutSejour
      *
      * @return  self
      */
-    public function setStatut($statut) {
-        $this->statut = $statut;
+    public function setStatutSejour($statutSejour) {
+        $this->statutSejour = $statutSejour;
 
         return $this;
     }

@@ -8,10 +8,13 @@ $valPrenom = $client ? $client->prenomClient : "";
 $valNaissance = $client ? $client->naissanceClient : "";
 $valMail = $client ? $client->mailClient : "";
 $requete = $client ? "update" : "insert" ;
-
+$retour = $client ? "?page=afficheClient&id=$client->idClient" : "?page=listeSejours";
 echo <<<HTML
     <div class="container">
-        <h1>$titre de client</h1>
+        <div class="row">
+            <a class="btn button" href="$retour">Retour</a>
+            <h1>$titre de client</h1>
+        </div>
         <div class="bloc">
             <div class="card article">
                 <form class="p-2" method="post">
@@ -22,6 +25,13 @@ echo <<<HTML
                     Date de naissance : <input type="date" name="naissanceClient" value="$valNaissance" class="form-control mb-2">
                     Email : <input type="email" name="mailClient" value="$valMail" pattern ="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" class="form-control mb-2">
                     <input type="submit" name="submitEdit" class="btn button mt-3" value="$action">
+HTML;
+if ($client) {
+    echo <<<HTML
+                    <input type="submit" name="delete" class="btn button mt-3" value="Supprimer" onclick="return confirm('Confirmer pour supprimer')">;
+HTML;
+}
+echo <<<HTML
                 </form>
             </div>
         </div>

@@ -1,5 +1,4 @@
 <?php
-
 $clientRepository = new ClientRepository($pdo);
 
 // Récupération des informations client si l'idClient est présent dans l'URL
@@ -28,4 +27,9 @@ if (isset($_POST['submitEdit'])) {
         $idClient = $clientRepository->lastInsert();
     }
     header("location:?page=afficheClient&id=$idClient");
+} elseif (isset($_POST['delete'])) {
+    if (isset($_GET['id'])) {
+        $clientRepository->delete($idClient);
+    }
+    header("location:?page=listeSejours");
 }

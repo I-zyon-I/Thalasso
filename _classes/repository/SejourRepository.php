@@ -44,6 +44,24 @@ class SejourRepository {
         }
     }
 
+    public function findBySoin(string $idSejour, string $idSoin) {
+        try {
+            $sql = "SELECT *
+                FROM sejour AS sj
+                    INNER JOIN seance AS se
+                        ON sj.idSejour = se.idSejour
+                    INNER JOIN soin AS so
+                        ON se.idSoin = so.idSoin
+                    INNER JOIN espace AS ep
+                        ON so.idEspace = ep.idEspace
+                WHERE sj.idSejour = $idSejour
+                    AND so.idSoin = $idSoin;";
+            return $this->pdo->query($sql);
+        } catch (PDOException $e) {
+            echo "Erreur Query sur : " . $e->getMessage();
+        }
+    }
+
     public function listeSejours($paging, ?array $arrStatut) {
         try {
             $offset = ($paging - 1) * 10;
@@ -115,16 +133,16 @@ class SejourRepository {
         }
     }
     
-    public function editSejour($id) {
-        try {
-            return $this->pdo->query("SELECT *
-                FROM sejour
-                WHERE idSejour = $id;"
-            );
-        } catch (PDOException $e) {
-            echo "Erreur Query sur : " . $e->getMessage();
-        }
-    }
+    // public function editSejour($id) {
+    //     try {
+    //         return $this->pdo->query("SELECT *
+    //             FROM sejour
+    //             WHERE idSejour = $id;"
+    //         );
+    //     } catch (PDOException $e) {
+    //         echo "Erreur Query sur : " . $e->getMessage();
+    //     }
+    // }
     
     public function modifSejour($id) {
         try {
@@ -166,4 +184,53 @@ class SejourRepository {
             echo "Erreur Query sur : " . $e->getMessage();
         }
     }
+
+    public function update(Sejour $sejour) {
+        try {
+            $sql = "UPDATE sejour
+                SET dateDebutSejour = :dateDebutSejour,
+                    dureeJourSejour = :dureeJourSejour,
+                    vestiaireSejour = :vestiaireSejour,
+                    statutSejour = :statutSejour,
+                    idClient = :idClient
+                WHERE idSejour = :idSejour;";
+            $data = [
+                ':idSejour' => $sejour->getIdSejour(),
+                ':dateDebutSejour' => $sejour->getDateDebutSejour(),
+                ':dureeJourSejour' => $sejour->getDureeJourSejour(),
+                ':vestiaireSejour' => $sejour->getVestiaireSejour(),
+                ':statutSejour' => $sejour->getStatutSejour(),
+                ':idClient' => $sejour->getIdClient()
+            ];
+            return $this->pdo->prepare($sql)->execute($data);
+        } catch (PDOException $e) {
+            echo "Erreur Query sur : " . $e->getMessage();
+        }
+    }
+
+    public function insert(Sejour $sejour) {
+        try {
+            $sql = "INSERT INTO sejour (dateDebutSejour, dureeJourSejour, vestiaireSejour, statutSejour, idClient)
+                VALUES (:dateDebutSejour, :dureeJourSejour, :vestiaireSejour, :statutSejour, :idClient);";
+            $data = [
+                ':dateDebutSejour' => $sejour->getDateDebutSejour(),
+                ':dureeJourSejour' => $sejour->getDureeJourSejour(),
+                ':vestiaireSejour' => $sejour->getVestiaireSejour(),
+                ':statutSejour' => $sejour->getStatutSejour(),
+                ':idClient' => $sejour->getIdClient()
+            ];
+            return $this->pdo->prepare($sql)->execute($data);
+        } catch (PDOException $e) {
+            echo "Erreur Query sur : " . $e->getMessage();
+        }
+    }
+
+    public function lastInsert() {
+        try {
+            return $this->pdo->lastInsertId();
+        } catch (PDOException $e) {
+            echo "Erreur Query sur : " . $e->getMessage();
+        }
+    }
+
 }

@@ -12,7 +12,7 @@ class SoinRepository {
     // Méthode
     public function findAll() {
         try {
-            return $this->pdo->query("select * from Soin");
+            return $this->pdo->query("SELECT * FROM soin ORDER BY nomSoin");
         } catch (PDOException $e) {
             echo "Erreur Query sur : " . $e->getMessage();
         }

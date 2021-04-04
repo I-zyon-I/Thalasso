@@ -4,7 +4,7 @@
     $nomUpper = strtoupper($sejour->nomClient);
     $dateNaissance = date('d/m/Y', strtotime($sejour->naissanceClient));
     $dateDebut = date('d/m/Y', strtotime($sejour->dateDebutSejour));
-    $dateFin = date('d/m/Y', strtotime("$sejour->dateDebutSejour +$sejour->dureeJourSejour day"));
+    $dateFin = date('d/m/Y', strtotime("$sejour->dateDebutSejour +" . $sejour->dureeJourSejour - 1 . " day"));
     $idClient = $sejour->idClient;
     $idSejour = $sejour->idSejour;
     echo <<<HTML
@@ -12,16 +12,16 @@
         <h1>Fiche séjour</h1>
             <div class="bloc">
                 <div class="card article mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Client :</h5>
-                        Client n° $sejour->idClient<br>
-                        Nom : $nomUpper<br>
-                        Prénom : $sejour->prenomClient<br>
-                        Date de naissance : $dateNaissance<br>
-                        Email : $sejour->mailClient<br>
-                        <a class='btn button mt-2' href='?page=afficheClient&id=$idClient'>Afficher</a>
-                        <a class='btn button mt-2' href='?page=editClient&id=$idClient'>Modifier</a>
-                    </div>
+                    <a class='btn mt-2' style="text-align: left;" href='?page=afficheClient&id=$idClient'>
+                        <div class="card-body">
+                            <h5 class="card-title">Client :</h5>
+                            Client n° $sejour->idClient<br>
+                            Nom : $nomUpper<br>
+                            Prénom : $sejour->prenomClient<br>
+                            Date de naissance : $dateNaissance<br>
+                            Email : $sejour->mailClient<br>
+                        </div>
+                    </a>
                 </div>
                 <div class="card article mb-4 bg-success">
                     <div class="card-body">
@@ -51,12 +51,14 @@ HTML;
                 echo date('d/m/Y', strtotime($seance->dateSeance)) . "<br>" ;
             }
             
-            echo date('H:i', strtotime($seance->heureSeance)) . " : $seance->nomSoin ($seance->dureeMinuteSoin min), espace $seance->nomEspace ($seance->statutSeance)<br>";
+            echo "<a class='btn' href='?page=afficheSeance&id=$seance->idSeance'><div>";
+            echo date('H:i', strtotime($seance->heureSeance)) . " : $seance->nomSoin ($seance->dureeMinuteSoin min), espace $seance->nomEspace ($seance->statutSeance)";
+            // echo "<a class='btn button mt-2' href='?page=editSeance&id=$idSejour&soin=$seance->idSoin'>Afficher</a><br>";
+            echo "</div></a><br>";
             $jour = $seance->dateSeance;
         }
     } else {
         echo "Aucune séance<br>";
     }
-    echo "<a class='btn button mt-2' href='?page=editSeance&id=$idSejour'>Modifier</a>";
-    echo "<a class='btn button mt-2' href='?page=creerSeance&id=$idSejour'>Ajouter</a>";
+    echo "<a class='btn button mt-2' href='?page=editSeance&sejour=$idSejour'>Ajouter</a>";
     echo "</div></div></div></div>";
