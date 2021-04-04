@@ -26,11 +26,11 @@ define("PATH_FOR_HTML", substr($_SERVER['PHP_SELF'], 0, -9));
 
 // Website informations
 define("WEBSITE_NAME", "Thalass'eau");
-define("WEBSITE_URL", "https://monsite.com");
-define("WEBSITE_DESCRIPTION", "Description du site");
+define("WEBSITE_URL", "https://Thalass'eau.com");
+define("WEBSITE_DESCRIPTION", "Votre source de bien-être");
 define("WEBSITE_LANGUAGE", "fr");
-define("WEBSITE_AUTHOR", "ROGER CAUCHON");
-define("WEBSITE_AUTHOR_MAIL", "caucroge.dev@gmail.com");
+define("WEBSITE_AUTHOR", "Groupe A");
+define("WEBSITE_AUTHOR_MAIL", "GroupeA@gmail.com");
 
 // Facebook Open Graph tags
 define("WEBSITE_FACEBOOK_NAME", "");

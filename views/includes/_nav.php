@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark">
+<nav class="navbar  navbar-expand-md navbar-dark">
     <!-- <a class="navbar-brand" href="#"><?= $nameApp ?></a> -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -9,7 +9,6 @@
             <?= $hbt->bt4Li("?page=home", "Accueil") ?>
             <?= $hbt->bt4Li("?page=contact", "Contact") ?>
             <?= $hbt->bt4Li("?page=listeSejours", "Séjours") ?>
-            <?= $hbt->bt4Li("?page=login", "Administration") ?>
             <?= $hbt->bt4Li("?page=editClient", "Nouveau client") ?>
             <form class="d-flex" action="" method="POST">
                 <input class="form-control me-2" type="search" id="searchTxt" name="searchTxt" placeholder="Rechercher" aria-label="Search">

@@ -6,12 +6,14 @@ class Admin
     protected $idAdmin;
     protected $loginAdmin;
     protected $passwordAdmin;
+    
 
     // Constructeur
     public function __construct(string $loginAdmin, string $passwordAdmin)
     {
         $this->loginAdmin = $loginAdmin;
         $this->passwordAdmin = $passwordAdmin;
+        $passwordAdmin = password_hash($passwordAdmin, PASSWORD_BCRYPT);
     }
 
     
@@ -63,5 +65,6 @@ class Admin
 
         return $this;
     }
+
 }
 ?>
