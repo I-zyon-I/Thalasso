@@ -12,8 +12,7 @@
             <form method="post">
                 Identifiant : <input type="text" name="loginAdmin" value="" class="form-control mb-2">
                 Mot de passe : <input type="password" name="passwordAdmin" value="" class="form-control mb-2">
-                <div><?php echo $message ?></div>
-                
+                <div class="erreur"><?php echo $message ?></div>
                 <input type="submit" name="submitLogin" class="btn button mt-3" value="Connexion">
             </form>
         </div> 

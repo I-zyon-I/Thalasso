@@ -28,16 +28,16 @@ Class AdminRepository {
         }
     }
 
-    public function update($idAdmin, $loginAdmin, $passwordAdmin) {
+    public function update(Admin $admin) {
         try {
             $sql = "UPDATE admin
             SET loginAdmin = :loginAdmin,
-            passwordAdmin = :passwordAdmin,
+            passwordAdmin = :passwordAdmin
             WHERE idAdmin = :idAdmin;";
             $data = [
-                ':idAdmin' => $idAdmin,
-                ':loginAdmin' => $loginAdmin,
-                ':passwordAdmin' => $passwordAdmin,
+                ':idAdmin' => $admin->getIdAdmin(),
+                ':loginAdmin' => $admin->getLoginAdmin(),
+                ':passwordAdmin' => $admin->getPasswordAdmin()
             ];
             return $this->pdo->prepare($sql)->execute($data);
         } catch (PDOException $e) {
@@ -46,13 +46,13 @@ Class AdminRepository {
     }
     // Création d'un nouvel administrateur
 
-    public function insert($loginAdmin, $passwordAdmin) {
+    public function insert(Admin $admin) {
         try {
             $sql = "INSERT INTO admin (loginAdmin, passwordAdmin)
             VALUES (:loginAdmin, :passwordAdmin);";
             $data = [
-                ':loginAdmin' => $loginAdmin,
-                ':passwordAdmin' => password_hash($passwordAdmin , PASSWORD_BCRYPT),
+                ':loginAdmin' => $admin->getLoginAdmin(),
+                ':passwordAdmin' => $admin->getPasswordAdmin()
             ];
             return $this->pdo->prepare($sql)->execute($data);
             // return $this->pdo->prepare($sql)->execute();
@@ -68,21 +68,6 @@ Class AdminRepository {
             echo "Erreur Query sur : " . $e->getMessage();
         }
     }
-
-    // public function updatePasswordHash($passwordAdmin) {
-    //     $passwordAdminHash = password_hash($passwordAdmin, PASSWORD_BCRYPT);
-    //     try {
-    //         $sql = "INSERT INTO admin (passwordAdminHash)
-    //         VALUES (:passwordAdminHash);";
-    //         $data = [
-    //             ':passwordAdminHash' => $passwordAdminHash,
-    //         ];
-    //         return $this->pdo->prepare($sql)->execute($data);
-    //         // return $this->pdo->prepare($sql)->execute();
-    //     } catch (PDOException $e) {
-    //         echo "Erreur Query sur : " . $e->getMessage();
-    //     }
-    // }
 }
 
 
