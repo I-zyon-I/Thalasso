@@ -77,4 +77,15 @@ class ClientRepository {
             echo "Erreur Query sur : " . $e->getMessage();
         }
     }
+
+    public function rechercheClient($parametre) {
+        try {
+            return $this->pdo->query("SELECT *
+                FROM client AS cl
+                WHERE cl.nomClient LIKE '%$parametre%' OR cl.prenomClient LIKE '%$parametre%' OR cl.idClient LIKE '$parametre';" //A CONFIRMER
+            );
+        } catch (PDOException $e) {
+            echo "Erreur Query sur : " . $e->getMessage();
+        }
+    }
 }

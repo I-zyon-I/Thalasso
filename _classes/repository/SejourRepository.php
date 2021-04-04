@@ -137,6 +137,33 @@ class SejourRepository {
         }
     }
     
+    public function rechercheSejour($parametre) {
+        try {
+            return $this->pdo->query("SELECT *
+        FROM sejour AS sj
+            INNER JOIN client AS cl
+                ON sj.idClient = cl.idClient
+        WHERE idSejour = '$parametre'");
+        } catch (PDOException $e) {
+            echo "Erreur Query sur : " . $e->getMessage();
+        }
+    }
 
-
+    public function rechercheByClient($parametre) {
+        try {
+            return $this->pdo->query("SELECT *
+                FROM sejour AS sj
+                    LEFT JOIN client AS cl
+                        ON sj.idClient = cl.idClient
+                    LEFT JOIN seance AS sc
+                        ON sj.idSejour = sc.idSejour
+                    WHERE sj.idClient = '$parametre' OR cl.nomClient = '$parametre' OR cl.prenomClient = '$parametre'
+                ORDER BY
+                    sc.dateSeance ASC,
+                    sc.heureSeance ASC;"
+            );
+        } catch (PDOException $e) {
+            echo "Erreur Query sur : " . $e->getMessage();
+        }
+    }
 }
