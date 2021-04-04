@@ -8,13 +8,19 @@
         <ul class="navbar-nav mr-auto">
             <?= $hbt->bt4Li("?page=home", "Accueil") ?>
             <?= $hbt->bt4Li("?page=contact", "Contact") ?>
-            <?= $hbt->bt4Li("?page=listeSejours", "Séjours") ?>
-            <?= $hbt->bt4Li("?page=editClient", "Nouveau client") ?>
-            <form class="d-flex" action="?page=recherche" method="POST">
-                <input class="form-control me-2" type="search" id="search" name="search" placeholder="Rechercher" aria-label="Search">
-                <button class="btn button" type="submit">Rechercher</button>
-            </form>
         </ul>
+        <div class="input-group mb-3">
+            <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Administration</button>
+            <ul class=" dropdown-menu">
+                <?= $hbt->bt4Li("?page=listeSejours", "Séjours") ?>
+                <?= $hbt->bt4Li("?page=listeAdmins", "Administateurs") ?>
+                <?= $hbt->bt4Li("?page=editClient", "Nouveau client") ?>
+            </ul>
+            <form class="d-flex" action="?page=recherche" method="POST">
+                    <input class="form-control me-2" type="search" id="search" name="search" placeholder="Rechercher" aria-label="Search">
+                    <button class="btn button" type="submit">Rechercher</button>
+                </form>
+        </div>
     </div>
     <div class="meteo">
             <h3 id="city-name"></h3>

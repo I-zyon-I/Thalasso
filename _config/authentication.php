@@ -6,4 +6,5 @@ require_once "./_classes/repository/AdminRepository.php";
 $adminRepository = new AdminRepository($pdo);
 $_SESSION['admins'] = $adminRepository->findAll()->fetchAll();
 
+
 ?>

@@ -25,3 +25,6 @@ foreach ($sejours as $sejour) {
 // Récupération du nombre de dossiers total
 $count = $sejourRepository->count($arrStatut)->fetch();
 $total = $count->total;
+
+
+?>

@@ -9,11 +9,13 @@ class Admin
     
 
     // Constructeur
-    public function __construct(string $loginAdmin, string $passwordAdmin)
-    {
+    public function __construct(?string $idAdmin,string $loginAdmin, string $passwordAdmin)
+    {   
+        $this->idAdmin = $idAdmin;
         $this->loginAdmin = $loginAdmin;
-        $this->passwordAdmin = $passwordAdmin;
         $passwordAdmin = password_hash($passwordAdmin, PASSWORD_BCRYPT);
+        $this->passwordAdmin = $passwordAdmin;
+        
     }
 
     

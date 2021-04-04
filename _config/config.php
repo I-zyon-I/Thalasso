@@ -3,8 +3,8 @@
 //          SESSIONS           //
 // --------------------------- //
 
-ini_set('session.cookie_lifetime', false);
-session_start();
+// ini_set('session.cookie_lifetime', false);
+// session_start();
 
 // --------------------------- //
 //       ERRORS DISPLAY        //
@@ -15,7 +15,7 @@ error_reporting(E_ERROR | E_PARSE);
 ini_set('display_errors', true);
 
 // --------------------------- //
-// CONSTANTS //
+//          CONSTANTS          //
 // --------------------------- //
 
 // Paths

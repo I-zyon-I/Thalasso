@@ -1,0 +1,29 @@
+<?php 
+
+$titre = $admin ? "Modification" : "Création";
+$action = $admin ? "Modifier" : "Créer";
+$valId = $admin ? $admin->idAdmin : "";
+$valLogin = $admin ? $admin->loginAdmin : "";
+// $valPassword = $admin ? $admin->passwordAdmin : "";
+$requete = $admin ? "update" : "insert" ;
+
+echo <<<HTML
+    <div class="container">
+        <h1>$titre d'Admin</h1>
+        <div class="bloc">
+            <div class="card article">
+                <form method="post">
+                    <input type="hidden" name="requete" value="$requete">
+                    N° : <input type="text" name="idAdmin" value="$valId" class="form-control mb-2" disabled>
+                    Identifiant : <input type="text" name="loginAdmin" value="$valLogin" class="form-control mb-2">
+                    Mot de passe : <input type="password" name="passwordAdmin1" value="" class="form-control mb-2">
+                    Confirmation : <input type="password" name="passwordAdmin2" value="" class="form-control mb-2">
+                    <div class="erreur">$message</div>
+                    <input type="submit" name="submitEditLogin" class="btn button mt-3" value="$action">
+                </form>
+            </div>
+        </div>
+    </div>
+HTML;
+
+?>
