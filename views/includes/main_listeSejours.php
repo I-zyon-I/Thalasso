@@ -56,7 +56,7 @@ HTML;
             } else {
                 echo "Aucune séance<br>";
             }
-            echo "<a class='btn button mt-2' href='?page=afficheSejour&id=$id'>Afficher</a></div></div></div>";
+            echo "<a class='btn button mt-2' href='?page=afficheSejour&id=$id'>Fiche séjour</a></div></div></div>";
         $i++;
         }
         echo "</div>";

@@ -9,4 +9,4 @@ $sejour = $sejourRepository->findBy($idSejour)->fetch();
 
 // Récupération des données séances
 $seanceRepository = new SeanceRepository($pdo);
-$seances = $seanceRepository->findBy($idSejour)->fetchAll();
+$seances = $seanceRepository->findBySejour($idSejour)->fetchAll();

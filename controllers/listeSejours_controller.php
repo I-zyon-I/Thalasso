@@ -19,7 +19,7 @@ $sejours = $sejourRepository->listeSejours($paging, $arrStatut)->fetchAll();
 
 // Récupération de la liste des séance par dossier
 foreach ($sejours as $sejour) {
-    $arraySeances[] = $seanceRepository->findBy($sejour->idSejour)->fetchAll();
+    $arraySeances[] = $seanceRepository->findBySejour($sejour->idSejour)->fetchAll();
 }
 
 // Récupération du nombre de dossiers total

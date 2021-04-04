@@ -11,7 +11,8 @@ class Sejour {
     protected $idClient;
 
     // Constructeur
-    public function __construct(int $dateDebut, int $dureeSejour, int $vestiaire, string $statut, int $idClient) {
+    public function __construct(?string $idSejour, int $dateDebut, int $dureeSejour, int $vestiaire, string $statut, int $idClient) {
+        $this->idSejour = $idSejour;
         $this->dateDebut = $dateDebut;
         $this->dureeSejour = $dureeSejour;
         $this->vestiaire = $vestiaire;

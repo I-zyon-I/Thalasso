@@ -18,23 +18,27 @@ class SejourRepository {
         }
     }
 
-    public function findBy($idSejour) {
+    public function findBy(string $idSejour) {
         try {
-            return $this->pdo->query("SELECT *
-            FROM sejour as sj
-                INNER JOIN client as cl
-                    ON sj.idClient = cl.idClient
-            WHERE idSejour = $idSejour;");
+            $sql = "SELECT *
+                FROM sejour as sj
+                    INNER JOIN client as cl
+                        ON sj.idClient = cl.idClient
+                WHERE idSejour = $idSejour ;";
+            return $this->pdo->query($sql);
         } catch (PDOException $e) {
             echo "Erreur Query sur : " . $e->getMessage();
         }
     }
 
-    public function findByClient($idClient) {
+    public function findByClient(string $idClient) {
         try {
-            return $this->pdo->query("SELECT *
-                FROM sejour
-                WHERE idClient = $idClient;");
+            $sql = "SELECT *
+                FROM sejour as sj
+                    INNER JOIN client as cl
+                        ON sj.idClient = cl.idClient
+                WHERE sj.idClient = $idClient ;";
+            return $this->pdo->query($sql);
         } catch (PDOException $e) {
             echo "Erreur Query sur : " . $e->getMessage();
         }
@@ -43,29 +47,26 @@ class SejourRepository {
     public function listeSejours($paging, ?array $arrStatut) {
         try {
             $offset = ($paging - 1) * 10;
-            if (!$arrStatut) {
-                $strStatut = "('VAL')";
-            } else {
-                $strStatut = "('" . implode("', '", $arrStatut) . "')";
-            }
-            return $this->pdo->query("SELECT
-                sj.idSejour AS idSejour,
-                sj.dateDebutSejour AS dateDebutSejour,
-                sj.dureeJourSejour AS dureeJourSejour,
-                sj.vestiaireSejour AS vestiaireSejour,
-                sj.statutSejour AS statutSejour,
-                cl.nomClient AS nomClient,
-                cl.prenomClient AS prenomClient,
-                cl.naissanceClient AS naissanceClient,
-                cl.mailClient AS mailClient
-            FROM sejour AS sj
-                INNER JOIN client AS cl
-                    ON sj.idClient = cl.idClient
-            WHERE statutSejour IN $strStatut
-            ORDER BY
-                sj.dateDebutSejour ASC,
-                sj.idSejour ASC
-            LIMIT $offset, 10;");
+            $strStatut = !$arrStatut ? "('VAL')" : "('" . implode("', '", $arrStatut) . "')";
+            $sql = "SELECT
+                    sj.idSejour AS idSejour,
+                    sj.dateDebutSejour AS dateDebutSejour,
+                    sj.dureeJourSejour AS dureeJourSejour,
+                    sj.vestiaireSejour AS vestiaireSejour,
+                    sj.statutSejour AS statutSejour,
+                    cl.nomClient AS nomClient,
+                    cl.prenomClient AS prenomClient,
+                    cl.naissanceClient AS naissanceClient,
+                    cl.mailClient AS mailClient
+                FROM sejour AS sj
+                    INNER JOIN client AS cl
+                        ON sj.idClient = cl.idClient
+                WHERE statutSejour IN $strStatut
+                ORDER BY
+                    sj.dateDebutSejour ASC,
+                    sj.idSejour ASC
+                LIMIT $offset, 10;";
+            return $this->pdo->query($sql);
         } catch (PDOException $e) {
             echo "Erreur Query sur : " . $e->getMessage();
         }
@@ -73,12 +74,9 @@ class SejourRepository {
 
     function count($arrStatut = ['VAL', 'CLO', 'DEL']) {
         try {
-            if ($arrStatut == []) {
-                $strStatut = "('VAL', 'CLO', 'DEL')";
-            } else {
-                $strStatut = "('" . implode("', '", $arrStatut) . "')";
-            }
-            return $this->pdo->query("SELECT COUNT (*) AS total FROM sejour WHERE statutSejour IN $strStatut;");
+            $strStatut = $arrStatut == [] ? "('VAL', 'CLO', 'DEL')" : "('" . implode("', '", $arrStatut) . "')";
+            $sql = "SELECT COUNT (*) AS total FROM sejour WHERE statutSejour IN $strStatut;";
+            return $this->pdo->query($sql);
         } catch (PDOException $e) {
             echo "Erreur Query sur : " . $e->getMessage();
         }
@@ -87,7 +85,7 @@ class SejourRepository {
     // TO DELETE...?
     public function afficheSejour($idSejour) {
         try {
-            return $this->pdo->query("SELECT
+            $sql = "SELECT
                     sj.idSejour AS idSejour,
                     sj.dateDebutSejour AS dateDebutSejour,
                     sj.dureeJourSejour AS dureeJourSejour,
@@ -110,8 +108,8 @@ class SejourRepository {
                 WHERE sj.idSejour = $idSejour
                 ORDER BY
                     sc.dateSeance ASC,
-                    sc.heureSeance ASC;"
-            );
+                    sc.heureSeance ASC;";
+            return $this->pdo->query($sql);
         } catch (PDOException $e) {
             echo "Erreur Query sur : " . $e->getMessage();
         }

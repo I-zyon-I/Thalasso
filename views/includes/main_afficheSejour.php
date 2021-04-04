@@ -23,7 +23,7 @@
                         <a class='btn button mt-2' href='?page=editClient&id=$idClient'>Modifier</a>
                     </div>
                 </div>
-                <div class="card article mb-4">
+                <div class="card article mb-4 bg-success">
                     <div class="card-body">
                         <h5 class="card-title">Séjour :</h5>
                         Dossier n° $sejour->idSejour<br>

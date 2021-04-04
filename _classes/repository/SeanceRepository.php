@@ -12,15 +12,16 @@ class SeanceRepository {
     // Méthode
     public function findAll() {
         try {
-            return $this->pdo->query("SELECT * FROM seance;");
+            $sql = "SELECT * FROM seance;";
+            return $this->pdo->query($sql);
         } catch (PDOException $e) {
             echo "Erreur Query sur : " . $e->getMessage();
         }
     }
 
-    public function findBy($idSejour) {
+    public function findBySejour($idSejour) {
         try {
-            return $this->pdo->query("SELECT *
+            $sql = "SELECT *
             FROM seance as sc
                 INNER JOIN soin as so
                     ON sc.idSoin = so.idSoin
@@ -29,7 +30,8 @@ class SeanceRepository {
             WHERE idSejour = $idSejour
             ORDER BY
                 sc.dateSeance ASC,
-                sc.heureSeance ASC;");
+                sc.heureSeance ASC;";
+            return $this->pdo->query($sql);
         } catch (PDOException $e) {
             echo "Erreur Query sur : " . $e->getMessage();
         }
