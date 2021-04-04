@@ -124,6 +124,9 @@ HTML;
                 </div>
 HTML;
             }
-            echo "</div></div></div>";
+            
+        } else {
+            echo "Aucun client";
         }
+        echo "</div></div></div>";
     ?>
