@@ -14,7 +14,7 @@
     require "includes/_script.php";
     require "includes/_nav.php";
     require "includes/main_login.php";
-    require "includes/_footer.php";  
+    // require "includes/_footer.php";  
 ?>
     
 </body>
