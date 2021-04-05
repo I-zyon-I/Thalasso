@@ -11,6 +11,7 @@ $requete = $sejour ? "update" : "insert" ;
 $statuts = [ "VAL", "CLO", "DEL"];
 
 echo <<<HTML
+<div class="container-fluid bg1">
     <div class="container">
         <h1>$titre de séjour</h1>
         <div class="bloc">
@@ -41,4 +42,5 @@ echo <<<HTML
             </div>
         </div>
     </div>
+</div>
 HTML;

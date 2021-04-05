@@ -7,7 +7,9 @@
     $dateFin = date('d/m/Y', strtotime("$sejour->dateDebutSejour +" . $sejour->dureeJourSejour - 1 . " day"));
     $idClient = $sejour->idClient;
     $idSejour = $sejour->idSejour;
+    
     echo <<<HTML
+    <div class="container-fluid bg1">
         <div class="container">
         <h1>Fiche séjour</h1>
             <div class="bloc">
@@ -61,4 +63,4 @@ HTML;
         echo "Aucune séance<br>";
     }
     echo "<a class='btn button mt-2' href='?page=editSeance&sejour=$idSejour'>Ajouter</a>";
-    echo "</div></div></div></div>";
+    echo "</div></div></div></div></div>";

@@ -13,7 +13,6 @@
         require "includes/_script.php";
         require "includes/_nav.php";
         require "includes/main_editAdmin.php";
-        require "includes/_footer.php";
     ?>  
 </body>
 </html>

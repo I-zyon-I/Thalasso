@@ -5,7 +5,7 @@
 $adminRepository = new AdminRepository($pdo);
 $_SESSION['admins'] = $adminRepository->findAll()->fetchAll();
 
-// var_dump($_SESSION['admins']);die
+// var_dump($_SESSION['admins']);die;
 $message = "";
 
 if (isset($_POST['submitLogin'])) {
@@ -14,7 +14,7 @@ if (isset($_POST['submitLogin'])) {
         $isAuthenticated = false;
         foreach ($_SESSION['admins'] as $admin) {
             if ($_POST['loginAdmin'] == $admin->loginAdmin && password_verify($_POST['passwordAdmin'] , $admin->passwordAdmin )) {
-                session_start();
+                setcookie('admin',"logged", 0);
                 $_SESSION['admins'] = $admin;
                 header("location: ?page=listeSejours");
                 $isAuthenticated = true; 
@@ -26,4 +26,6 @@ if (isset($_POST['submitLogin'])) {
         } 
     }
 }
+
+
     

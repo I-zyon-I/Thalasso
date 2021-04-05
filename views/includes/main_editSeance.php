@@ -10,8 +10,8 @@ $valHeure = $seance ? $seance->heureSeance : "";
 $requete = $seance ? "update" : "insert" ;
 
 $statuts = [ "VAL", "CLO", "DEL"];
-
 echo <<<HTML
+<div class="container-fluid bg2">
     <div class="container">
         <h1>$titre de séance</h1>
         <div class="bloc">
@@ -54,4 +54,5 @@ echo <<<HTML
             </div>
         </div>
     </div>
+</div>
 HTML;

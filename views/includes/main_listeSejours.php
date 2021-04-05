@@ -1,4 +1,5 @@
-<div class="container">
+<div class="container-fluid bg1">
+    <div class="container">
     <h1>Liste des séjours</h1>
     <div class="bloc">
     <!-- Liste des dossiers -->
@@ -92,5 +93,6 @@ HTML;
         echo "Aucun séjour";
     }
     ?>
+        </div>
     </div>
 </div>

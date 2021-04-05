@@ -8,6 +8,7 @@ $dateNaissance = date('d/m/Y', strtotime($client->naissanceClient));
 $idClient = $client->idClient;
 // $idSejour = $client->idSejour;
 echo <<<HTML
+<div class="container-fluid bg3">
     <div class="container">
         <h1>Fiche client</h1>
         <div class="bloc">
@@ -48,4 +49,5 @@ echo <<<HTML
             </div>
         </div>
     </div>
+</div>    
 HTML;

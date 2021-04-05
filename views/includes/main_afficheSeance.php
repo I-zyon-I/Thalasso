@@ -9,7 +9,9 @@
     $idSejour = $seance->idSejour;
     $dateSeance = date('d/m/Y', strtotime($seance->dateSeance));
     $heureSeance = date('H:i', strtotime($seance->heureSeance));
+    
     echo <<<HTML
+    <div class="container-fluid bg2">
         <div class="container">
         <h1>Fiche séjour</h1>
             <div class="bloc">
@@ -51,4 +53,5 @@
                 </div>
             </div>
         </div>
+    </div>
 HTML;

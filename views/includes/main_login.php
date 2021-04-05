@@ -2,10 +2,10 @@
     
     <div class="header-login g-0 justify-content-center">
         <div class="login-text col-5 offset-6 text-center">
-            <img src="../../assets/imgs/logo.svg" alt="logo">
+            <img src="../../assets/imgs/logo1.svg" alt="logo">
         </div>
         <div class="col-3 offset-7">
-            <h1 class="text-center">Connexion à votre compte</h1>
+            <h2 class="text-center">Espace Administrateur</h2>
             <p>Afin d'accéder à votre compte personnel administrateur, veuillez renseigner votre Identifiant et votre Mot de passe.
             </p>
             
