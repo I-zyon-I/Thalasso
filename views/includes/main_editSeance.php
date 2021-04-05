@@ -10,11 +10,9 @@ $valHeure = $seance ? $seance->heureSeance : "";
 $requete = $seance ? "update" : "insert" ;
 
 $statuts = [ "VAL", "CLO", "DEL"];
-<<<<<<< HEAD
-=======
+
 $retour = $seance ? "?page=afficheSeance&id=$seance->idSeance" : "?page=afficheSejour&id={$_GET['sejour']}";
 
->>>>>>> 13e5aa25f43ea9624dffa0249c63d545368a8c55
 echo <<<HTML
 <div class="container-fluid bg2">
     <div class="container">

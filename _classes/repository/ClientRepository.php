@@ -92,10 +92,10 @@ class ClientRepository {
         }
     }
 
-    function count($arrIdClient) {
+    function count($recherche) {
         try {
-            $strClient = "('" . implode("', '", $arrIdClient) . "')";
-            $sql = "SELECT COUNT (*) AS total FROM client WHERE idClient IN $strClient;";
+            // $strClient = "('" . implode("', '", $arrIdClient) . "')";
+            $sql = "SELECT COUNT (*) AS total FROM client WHERE idClient LIKE '$recherche' OR nomClient LIKE '%$recherche%' OR prenomClient LIKE '%$recherche%';";
             return $this->pdo->query($sql);
         } catch (PDOException $e) {
             echo "Erreur Query sur : " . $e->getMessage();
