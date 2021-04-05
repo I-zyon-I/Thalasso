@@ -81,7 +81,7 @@ class SeanceRepository {
 
     public function insert(Seance $seance) {
         try {
-            $sql = "INSERT INTO sejour (idSejour, idSoin, dateSeance, heureSeance, statutSeance)
+            $sql = "INSERT INTO seance (idSejour, idSoin, dateSeance, heureSeance, statutSeance)
                 VALUES (:idSejour, :idSoin, :dateSeance, :heureSeance, :statutSeance);";
             $data = [
                 ':idSejour' => $seance->getIdSejour(),
@@ -103,4 +103,40 @@ class SeanceRepository {
             echo "Erreur Query sur : " . $e->getMessage();
         }
     }
+
+    public function delete(string $idSeance) {
+        try {
+            $sql = "DELETE FROM seance WHERE idSeance = $idSeance;";
+            return $this->pdo->query($sql);
+        } catch (PDOException $e) {
+            echo "Erreur Query sur : " . $e->getMessage();
+        }
+    }
+
+    public function toUpdateStatut() {
+        try {
+            $sql = "SELECT *
+            FROM seance AS sc
+                INNER JOIN soin AS so
+                    ON sc.idSoin = so.idSoin
+            WHERE sc.statutSeance = 'VAL'
+                AND datetime(sc.dateSeance || sc.heureSeance, '+' || so.dureeMinuteSoin || ' minutes')<datetime('now', 'localtime')
+            ;";
+            return $this->pdo->query($sql);
+        } catch (PDOException $e) {
+            echo "Erreur Query sur : " . $e->getMessage();
+        }
+    }
+
+    public function updateStatut(string $idSeance) {
+        try {
+            $sql = "UPDATE seance
+            SET statutSeance = 'CLO'
+            WHERE idSeance = $idSeance;";
+            return $this->pdo->query($sql);
+        } catch (PDOException $e) {
+            echo "Erreur Query sur : " . $e->getMessage();
+        }
+    }
+
 }

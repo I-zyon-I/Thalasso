@@ -166,7 +166,6 @@ class SejourRepository {
             echo "Erreur Query sur : " . $e->getMessage();
         }
     }
-
     public function rechercheByClient($parametre) {
         try {
             return $this->pdo->query("SELECT *
@@ -233,4 +232,12 @@ class SejourRepository {
         }
     }
 
+    public function delete(string $idSejour) {
+        try {
+            $sql = "DELETE FROM sejour WHERE idSejour = $idSejour;";
+            return $this->pdo->query($sql);
+        } catch (PDOException $e) {
+            echo "Erreur Query sur : " . $e->getMessage();
+        }
+    }
 }

@@ -11,9 +11,14 @@ $seanceRepository = new SeanceRepository($pdo);
 if (isset($_GET['id'])) {
     $idSeance = $_GET['id'];
     $seance = $seanceRepository->findBy($idSeance)->fetch();
+    $idSejour = $seance->idSejour;
 } else {
     $idSejour = $_GET['sejour'];
 }
+$sejourRepository = new SejourRepository($pdo);
+$sejour = $sejourRepository->findBy($idSejour)->fetch();
+$dateDebut = $sejour->dateDebutSejour;
+$dateFin = date('Y-m-d', strtotime("$sejour->dateDebutSejour +" . $sejour->dureeJourSejour - 1 . " day"));
 
 // Modification de la BDD lors de la soumission du formulaire
 if (isset($_POST['submitEdit'])) {
@@ -23,7 +28,7 @@ if (isset($_POST['submitEdit'])) {
         $_POST['idSejour'],
         $_POST['idSoin'],
         $_POST['dateSeance'],
-        $_POST['heureSeance'],
+        date('H:i:s', strtotime($_POST['heureSeance'])),
         $_POST['statutSeance']
     );
     
@@ -32,7 +37,12 @@ if (isset($_POST['submitEdit'])) {
         $seanceRepository->update($seance);
     } elseif ($_POST['requete'] == 'insert') {
         $seanceRepository->insert($seance);
-        $idSejour = $seanceRepository->lastInsert();
+        $idSeance = $seanceRepository->lastInsert();
     }
     header("location:?page=afficheSeance&id=$idSeance");
+} elseif (isset($_POST['delete'])) {
+    if (isset($_GET['id'])) {
+        $seanceRepository->delete($idSeance);
+    }
+    header("location:?page=afficheSejour&id=$seance->idSejour");
 }

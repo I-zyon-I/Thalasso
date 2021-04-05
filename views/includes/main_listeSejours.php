@@ -1,3 +1,4 @@
+<div class="container-fluid bg1">
 <div class="container">
     <h1>Liste des séjours</h1>
     <div class="bloc">
@@ -22,7 +23,7 @@
                 <div class="accordion-item light">
                     <h2 class="accordion-header" id="heading$id">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse$id" aria-expanded="false" aria-controls="collapse$id">
-                            [$sejour->statutSejour] Dossier n° $id : $nomUpper $sejour->prenomClient (début de séjour : $dateDebut, durée : $sejour->dureeJourSejour jour(s))
+                            Dossier n° $id : $nomUpper $sejour->prenomClient (début de séjour : $dateDebut, durée : $sejour->dureeJourSejour jour(s))
                         </button>
                     </h2>
                     <div id="collapse$id" class="accordion-collapse collapse" aria-labelledby="heading$id" data-bs-parent="#accordionExample">
@@ -93,4 +94,5 @@ HTML;
     }
     ?>
     </div>
+</div>
 </div>

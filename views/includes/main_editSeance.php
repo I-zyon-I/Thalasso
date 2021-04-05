@@ -10,9 +10,12 @@ $valHeure = $seance ? $seance->heureSeance : "";
 $requete = $seance ? "update" : "insert" ;
 
 $statuts = [ "VAL", "CLO", "DEL"];
+$retour = $seance ? "?page=afficheSeance&id=$seance->idSeance" : "?page=afficheSejour&id={$_GET['sejour']}";
 
 echo <<<HTML
+<div class="container-fluid bg2">
     <div class="container">
+        <a class="btn button" href="$retour">Retour</a>
         <h1>$titre de séance</h1>
         <div class="bloc">
             <div class="card article">
@@ -33,7 +36,7 @@ foreach ($soins as $soin) {
 echo <<<HTML
                     </select>
                     <!-- Date de début : <input type="date" name="dateDebutSejour" value="{$sejour->dateDebutSejour}" class="form-control mb-2"> -->
-                    Date : <input type="date" name="dateSeance" value="$valDate" class="form-control mb-2">
+                    Date : <input type="date" name="dateSeance" value="$valDate" class="form-control mb-2" min="$dateDebut" max="$dateFin">
                     Heure : <input type="time" name="heureSeance" value="$valHeure" class="form-control mb-2">
                     <!-- Durée : <input type="number" name="dureeJourSejour" value="{$sejour->dureeJourSejour}" class="form-control mb-2"> -->
                     <!-- Durée : <input type="number" name="dureeJourSejour" value="$valDuree" class="form-control mb-2"> -->
@@ -50,8 +53,16 @@ foreach ($statuts as $statut) {
 echo <<<HTML
                     </select>
                     <input type="submit" name="submitEdit" class="btn button mt-3" value="$action">
+HTML;
+if ($seance) {
+    echo <<<HTML
+                    <input type="submit" name="delete" class="btn button mt-3" value="Supprimer" onclick="return confirm('Confirmer pour supprimer')">
+HTML;
+}
+echo <<<HTML
                 </form>
             </div>
         </div>
     </div>
+</div>
 HTML;
