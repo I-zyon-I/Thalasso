@@ -89,6 +89,17 @@ class ClientRepository {
         }
     }
 
+    public function rechercheSejour($parametre) {
+        try {
+            return $this->pdo->query("SELECT *
+                FROM sejour
+                WHERE idClient = '$parametre';" //A CONFIRMER
+            );
+        } catch (PDOException $e) {
+            echo "Erreur Query sur : " . $e->getMessage();
+        }
+    }
+    
     public function delete(string $idClient) {
         try {
             $sql = "DELETE FROM client WHERE idClient = $idClient;";
