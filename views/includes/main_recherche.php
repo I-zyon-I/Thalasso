@@ -1,10 +1,10 @@
 <div class="container">
-    <h1>Resultat pour "<?= $_POST["search"] ?>"</h1>
+    <h1>Resultat pour "<?= $recherche ?>"</h1>
     <div class="bloc">
     <!-- Liste des dossiers -->
     <?php
     // Test de l'existence des dossiers
-    if ($sejour) {
+    if ($sejours) {
         echo "<h2>Resultat pour les séjours</h2>";
         // Création d'un accordéon
         echo "<div class='accordion' id='accordionExample'>";
@@ -13,7 +13,7 @@
         $i = 0;
 
         // Création d'un cadre pour chaque séjour
-            $id = $sejour[0]->idSejour;
+            $id = $sejours[0]->idSejour;
             $dateDebut = date('d/m/Y', strtotime($sejour->dateDebutSejour));
             $dateFin = date('d/m/Y', strtotime("$sejour->dateDebutSejour +$sejour->dureeJourSejour day"));
             $nomUpper = strtoupper($sejour->nomClient);
@@ -33,6 +33,7 @@
                             Début : $dateDebut<br>
                             Fin : $dateFin<br>
                             Vestiaire n°$sejour->vestiaireSejour<br>
+                            <b>Séances : </b><br>
 HTML;
             $seances = $arraySeances[$i];
 
@@ -88,19 +89,57 @@ HTML;
                             Mail : $client->mailClient <br>
 
                             <h4>Dossiers du client :</h4>
+HTML;                                   
+                $sejours = $arrSejourCl[$j];
+                if ($sejours[0]) {
+                    foreach ($sejours as $sejour) {
+                        $dateDebut = date('d/m/Y', strtotime($sejour->dateDebutSejour));
+                        $dateFin = date('d/m/Y', strtotime("$sejour->dateDebutSejour +$sejour->dureeJourSejour day"));
+                        $nomUpper = strtoupper($sejour->nomClient);
+                        echo "<div class='accordion-item light'>";
+                        echo <<<HTML
+                        <a href="?page=afficheSejour&id=$sejour->idSejour">[$sejour->statutSejour] Dossier n°$sejour->idSejour (début de séjour : $dateDebut, durée : $sejour->dureeJourSejour jour(s))</a>
 HTML;
-                            foreach ($arrSejourCl as $key=>$test){
-                                echo "<div class='accordion-item light'>";
-                                echo $arrSejourCl[$key]->idSejour;
-                                echo "</div>";
-                            }
-                            echo "<a class='btn button mt-2' href='?page=afficheClient&id=$client->idClient'>Fiche client</a>";
-                            echo "</div></div></div>";
-                            $j++;
+                        echo "</div>";
+                    }
+                } else {
+                    echo "Aucun séjour<br>";
+                }
+
+                echo "<a class='btn button mt-2' href='?page=afficheClient&id=$client->idClient'>Fiche client</a>";
+                echo "</div></div></div>";
+                $j++;
             }
+            // Pagination
+            if (isset($_GET['paging'])) {
+                $paging = $_GET['paging'];
+            } else {
+                $paging = 1;
+            }
+            $previous = $paging - 1;
+            $prevClass = ($previous > 0) ? "" : " disabled";
+            $next = $paging + 1;
+            $total = ceil($total / 10);
+            $nextClass = ($next > $total) ? " disabled" : "";
             
+            echo <<<HTML
+            <nav aria-label="Page navigation example" class="mt-2">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item$prevClass">
+                        <a class="page-link" href="?page=recherche&search=$recherche&paging=$previous">Précédent</a>
+                    </li>
+                    <li class="page-item disabled">
+                        <a class="page-link" aria-disabled="true">Page $paging / $total</a>
+                    </li>
+                    <li class="page-item$nextClass">
+                        <a class="page-link" href="?page=recherche&search=$recherche&paging=$next">Suivant</a>
+                    </li>
+                </ul>
+            </nav>
+HTML;     
         } else {
             echo "Aucun client";
         }
         echo "</div></div></div>";
     ?>
+    </div>

@@ -3,37 +3,37 @@
 require_once "_config/authentication.php";
 
 // Recherche dans Séjour
-$recherche = $_POST["search"];
+$recherche = $_GET["search"];
 
-$rechercheRepositorySj = new SejourRepository($pdo);
-$sejour = $rechercheRepositorySj->rechercheSejour($recherche)->fetchAll();
-//Recherche des SeJours par CLient
-// $rechercheRepositorySjCl = new ClientRepository($pdo);
-// $rechercheSjCl = $rechercheRepositorySjCl->rechercheSejour($_POST["search"])->fetchAll();
+$sejourRepository = new SejourRepository($pdo);
+$clientRepository = new ClientRepository($pdo);
+$seanceRepository = new SeanceRepository($pdo);
 
-//Recherche dans Client
-$rechercheRepositoryCl = new ClientRepository($pdo);
-$rechercheCl = $rechercheRepositoryCl->rechercheClient($recherche)->fetchAll();
 
-// $arrIdClients = [];
-// foreach($rechercheCl as $clientId) {
-//     $arrIdClients[] = $clientId->idClient;
-// }
-$i = 0;
-// foreach($idClients as $idClient) {
-//     $rechercheRepositorySjCl = new SejourRepository($pdo);
-//     $arrSejourCl[] = $rechercheRepositorySjCl->findByClient($idClient)->fetchAll();
-// }
+// ------Recherche séjours------
+$sejours = $sejourRepository->rechercheSejour($recherche)->fetchAll();
+foreach ($sejours as $sejour) {
+    $arraySeances[] = $seanceRepository->findBySejour($sejours[0]->idSejour)->fetchAll();
+}
 
+// ------Recherche clients------
+
+// Récupération de la variable de pagination
+if (isset($_GET['paging'])) {
+    $paging = $_GET['paging'];
+} else {
+    $paging = 1;
+}
+
+// Récupération de la variable de pagination
+$rechercheCl = $clientRepository->listeRechercheClients($recherche, $paging)->fetchAll();
+
+// Recupération des séjour du client
 foreach($rechercheCl as $client) {
     $idClient = $client->idClient;
-
-    $rechercheRepositorySjCl = new SejourRepository($pdo);
-    $arrSejourCl = $rechercheRepositorySjCl->findByClient($idClient)->fetchAll();
+    $arrSejourCl[] = $sejourRepository->findByClient($idClient)->fetchAll();
 }
-// foreach ($arrSejourCl as $key=>$test){
-//     echo $arrSejourCl[$key]->idSejour;
-// }
-// foreach($rechercheSjCl as $recherche) {
-//     var_dump($recherche->idSejour);
-// }
+
+// Récupération du nombre de client total
+$count = $clientRepository->count($arrIdClient)->fetch();
+$total = $count->total;

@@ -78,23 +78,25 @@ class ClientRepository {
         }
     }
 
-    public function rechercheClient($parametre) {
+    public function listeRechercheClients($recherche, $paging) {
         try {
-            return $this->pdo->query("SELECT *
-                FROM client AS cl
-                WHERE cl.nomClient LIKE '%$parametre%' OR cl.prenomClient LIKE '%$parametre%' OR cl.idClient LIKE '$parametre';" //A CONFIRMER
-            );
+            $offset = ($paging - 1) * 10;
+            $sql = "SELECT *
+                FROM client
+                WHERE idClient LIKE '$recherche' OR nomClient LIKE '%$recherche%' OR prenomClient LIKE '%$recherche%'
+                ORDER BY nomClient, prenomClient
+                LIMIT $offset, 10;";
+            return $this->pdo->query($sql);
         } catch (PDOException $e) {
             echo "Erreur Query sur : " . $e->getMessage();
         }
     }
 
-    public function rechercheSejour($parametre) {
+    function count($arrIdClient) {
         try {
-            return $this->pdo->query("SELECT *
-                FROM sejour
-                WHERE idClient = '$parametre';" //A CONFIRMER
-            );
+            $strClient = "('" . implode("', '", $arrIdClient) . "')";
+            $sql = "SELECT COUNT (*) AS total FROM client WHERE idClient IN $strClient;";
+            return $this->pdo->query($sql);
         } catch (PDOException $e) {
             echo "Erreur Query sur : " . $e->getMessage();
         }
