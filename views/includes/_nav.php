@@ -23,8 +23,13 @@
             </ul>
             <form class="d-flex" action="?page=recherche" method="GET">
                 <input type="hidden" name="page" value="recherche">
+<<<<<<< HEAD
                 <input class="form-control search" type="search" id="search" name="search" placeholder="Rechercher" aria-label="Search">
                 <button class="btn btn-light"  type="submit"><i class="bi bi-search"></i></button>
+=======
+                <input class="form-control me-2" type="search" id="search" name="search" placeholder="Rechercher" aria-label="Search">
+                <button class="btn button" type="submit">Rechercher</button>
+>>>>>>> 13e5aa25f43ea9624dffa0249c63d545368a8c55
             </form>
         </div>
         <a href="?page=home&logout" class="btn button offset-4"><i class="bi bi-box-arrow-left"></i> Logout</a>

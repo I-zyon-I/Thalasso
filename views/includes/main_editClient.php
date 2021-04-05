@@ -28,7 +28,7 @@ echo <<<HTML
 HTML;
 if ($client) {
     echo <<<HTML
-                    <input type="submit" name="delete" class="btn button mt-3" value="Supprimer" onclick="return confirm('Confirmer pour supprimer')">;
+                    <input type="submit" name="delete" class="btn button mt-3" value="Supprimer" onclick="return confirm('Confirmer pour supprimer')">
 HTML;
 }
 echo <<<HTML

@@ -5,3 +5,6 @@ require_once "_classes/repository/SejourRepository.php";
 
 require_once "_classes/entity/Client.php";
 require_once "_classes/repository/ClientRepository.php";
+
+require_once "_classes/entity/Seance.php";
+require_once "_classes/repository/SeanceRepository.php";

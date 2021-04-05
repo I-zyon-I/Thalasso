@@ -13,7 +13,6 @@ $hh = HelperHtml::getSingleton();
 $hs = HelperSecurite::getSingleton();
 require_once "_config/db.php";
 
-
 //Nom de l'application 
 $nameApp = "WEBSITE_NAME";
 

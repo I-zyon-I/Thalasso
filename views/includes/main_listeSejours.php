@@ -1,5 +1,9 @@
 <div class="container-fluid bg1">
+<<<<<<< HEAD
     <div class="container">
+=======
+<div class="container">
+>>>>>>> 13e5aa25f43ea9624dffa0249c63d545368a8c55
     <h1>Liste des séjours</h1>
     <div class="bloc">
     <!-- Liste des dossiers -->
@@ -23,7 +27,7 @@
                 <div class="accordion-item light">
                     <h2 class="accordion-header" id="heading$id">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse$id" aria-expanded="false" aria-controls="collapse$id">
-                            [$sejour->statutSejour] Dossier n° $id : $nomUpper $sejour->prenomClient (début de séjour : $dateDebut, durée : $sejour->dureeJourSejour jour(s))
+                            Dossier n° $id : $nomUpper $sejour->prenomClient (début de séjour : $dateDebut, durée : $sejour->dureeJourSejour jour(s))
                         </button>
                     </h2>
                     <div id="collapse$id" class="accordion-collapse collapse" aria-labelledby="heading$id" data-bs-parent="#accordionExample">
@@ -95,4 +99,5 @@ HTML;
     ?>
         </div>
     </div>
+</div>
 </div>
