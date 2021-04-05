@@ -1,5 +1,7 @@
 <?php
 
+require_once "_config/authentication.php";
+
 // Création des dépôts
 $adminRepository = new AdminRepository($pdo);
 

@@ -1,5 +1,7 @@
 <?php
 
+require_once "_config/authentication.php";
+
 $sejourRepository = new SejourRepository($pdo);
 
 // Récupération des informations séjour si l'idSejour est présent dans l'URL

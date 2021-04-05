@@ -12,7 +12,7 @@ $hfs = HelperFileSystem::getSingleton();
 $hh = HelperHtml::getSingleton();
 $hs = HelperSecurite::getSingleton();
 require_once "_config/db.php";
-// require_once "_config/authentication.php";
+
 
 //Nom de l'application 
 $nameApp = "WEBSITE_NAME";

@@ -1,4 +1,7 @@
 <?php
+
+require_once "_config/authentication.php";
+
 $clientRepository = new ClientRepository($pdo);
 
 // Récupération des informations client si l'idClient est présent dans l'URL

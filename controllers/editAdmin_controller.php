@@ -1,5 +1,7 @@
 <?php
 
+require_once "_config/authentication.php";
+
 $adminRepository = new AdminRepository($pdo);
 $message = "";
 

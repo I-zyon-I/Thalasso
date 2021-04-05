@@ -5,15 +5,17 @@
 <?php 
     require "includes/_head.php"
 ?>
-<link rel="stylesheet" href="../assets/css/mvc.css">
+
 </head>
 
 <body>
 
-<?php 
+<?php
+    require "includes/_script.php"; 
     require "includes/_nav.php";
     require "includes/main_editSeance.php";
-    require "includes/_script.php";
+    require "includes/_footer.php";
+    
 ?>
     
 </body>

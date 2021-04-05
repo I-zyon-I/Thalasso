@@ -1,4 +1,7 @@
 <?php
+
+require_once "_config/authentication.php";
+
 // Recherche dans Séjour
 $rechercheRepositorySj = new SejourRepository($pdo);
 $rechercheSj = $rechercheRepositorySj->rechercheSejour($_POST["search"])->fetchAll();

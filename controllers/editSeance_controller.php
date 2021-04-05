@@ -1,5 +1,7 @@
 <?php
 
+require_once "_config/authentication.php";
+
 $soinRepository = new SoinRepository($pdo);
 $soins = $soinRepository->findAll()->fetchAll();
 

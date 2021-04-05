@@ -5,7 +5,7 @@
 <?php 
     require "includes/_head.php"
 ?>
-<link rel="stylesheet" href="../assets/css/mvc.css">
+
 </head>
 
 <body>
@@ -14,6 +14,7 @@
     require "includes/_nav.php";
     require "includes/main_editClient.php";
     require "includes/_script.php";
+    require "includes/_footer.php";
 ?>
     
 </body>

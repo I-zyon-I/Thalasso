@@ -1,10 +1,13 @@
 <?php 
 
-require_once "./_classes/repository/AdminRepository.php";
 
-// Initialisation du tableau des utilisateurs autorisés via la table admin
-$adminRepository = new AdminRepository($pdo);
-$_SESSION['admins'] = $adminRepository->findAll()->fetchAll();
+//Gestion des Sessions 
+
+$id_session = $_COOKIE['PHPSESSID'];
+
+if(!isset($id_session)) {
+    header("location: ?page=home");       
+}
 
 
 ?>

@@ -1,5 +1,7 @@
 <?php
 
+require_once "_config/authentication.php";
+
 // Création des dépôts
 $sejourRepository = new SejourRepository($pdo);
 $seanceRepository = new SeanceRepository($pdo);

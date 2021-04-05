@@ -1,4 +1,5 @@
 <?php
+require_once "_config/authentication.php";
 
 $idClient = $_GET['id'];
 

@@ -1,5 +1,7 @@
 <?php
 
+require_once "_config/authentication.php";
+
 // Récupération de l'idSejour
 $idSejour = $_GET["id"];
 
