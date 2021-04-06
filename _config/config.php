@@ -1,12 +1,5 @@
 <?php
 // --------------------------- //
-//          SESSIONS           //
-// --------------------------- //
-
-// ini_set('session.cookie_lifetime', false);
-// session_start();
-
-// --------------------------- //
 //       ERRORS DISPLAY        //
 // --------------------------- //
 
@@ -31,15 +24,3 @@ define("WEBSITE_DESCRIPTION", "Votre source de bien-être");
 define("WEBSITE_LANGUAGE", "fr");
 define("WEBSITE_AUTHOR", "Groupe A");
 define("WEBSITE_AUTHOR_MAIL", "GroupeA@gmail.com");
-
-// Facebook Open Graph tags
-define("WEBSITE_FACEBOOK_NAME", "");
-define("WEBSITE_FACEBOOK_DESCRIPTION", "");
-define("WEBSITE_FACEBOOK_URL", "");
-define("WEBSITE_FACEBOOK_IMAGE", "");
-
-// DataBase informations
-// define("DATABASE_HOST", "localhost");
-//define("DATABASE_NAME", "thalasso");
-// define("DATABASE_USER", "root");
-// define("DATABASE_PASSWORD", "");
