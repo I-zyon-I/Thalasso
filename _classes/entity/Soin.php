@@ -14,7 +14,6 @@ class Soin {
         $this->dureeSoin = $dureeSoin;
     }
 
-
     // Getter & Setter
 
     /**
@@ -38,7 +37,6 @@ class Soin {
      */
     public function setNomSoin($nomSoin) {
         $this->nomSoin = $nomSoin;
-
         return $this;
     }
 
@@ -56,7 +54,6 @@ class Soin {
      */
     public function setDureeSoin($dureeSoin) {
         $this->dureeSoin = $dureeSoin;
-
         return $this;
     }
 
@@ -65,5 +62,15 @@ class Soin {
      */
     public function getIdEspace() {
         return $this->idEspace;
+    }
+
+    /**
+     * Set the value of dureeSoin
+     *
+     * @return  self
+     */
+    public function setIdEspace($idEspace) {
+        $this->idEspace = $idEspace;
+        return $this;
     }
 }

@@ -24,7 +24,7 @@ echo <<<HTML
                     <!-- Date de début : <input type="date" name="dateDebutSejour" value="{$sejour->dateDebutSejour}" class="form-control mb-2"> -->
                     Date de début : <input type="date" name="dateDebutSejour" value="$valDate" class="form-control mb-2">
                     <!-- Durée : <input type="number" name="dureeJourSejour" value="{$sejour->dureeJourSejour}" class="form-control mb-2"> -->
-                    Durée : <input type="number" name="dureeJourSejour" value="$valDuree" class="form-control mb-2">
+                    Durée : <input type="number" name="dureeJourSejour" value="$valDuree" class="form-control mb-2" min="0">
                     <!-- Vestiaire : <input type="text" name="vestiaireSejour" value="{$sejour->vestiaireSejour}" class="form-control mb-2"> -->
                     Vestiaire : <input type="text" name="vestiaireSejour" value="$valVestiaire" class="form-control mb-2">
                     Statut :

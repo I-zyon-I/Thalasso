@@ -13,16 +13,17 @@ Class AdminRepository {
     // Méthode
     public function findAll() {
         try {
-            return $this->pdo->query("select * from admin");
+            $sql = "SELECT * FROM admin";
+            return $this->pdo->query($sql);
         } catch (PDOException $e) {
             echo "Erreur Query sur : " . $e->getMessage();
         }
     }
 
-
     public function findBy($idAdmin) {
         try {
-            return $this->pdo->query("SELECT * FROM admin WHERE idAdmin = $idAdmin;");
+            $sql = "SELECT * FROM admin WHERE idAdmin = $idAdmin;";
+            return $this->pdo->query($sql);
         } catch (PDOException $e) {
             echo "Erreur Query sur : " . $e->getMessage();
         }
@@ -31,9 +32,9 @@ Class AdminRepository {
     public function update(Admin $admin) {
         try {
             $sql = "UPDATE admin
-            SET loginAdmin = :loginAdmin,
-            passwordAdmin = :passwordAdmin
-            WHERE idAdmin = :idAdmin;";
+                SET loginAdmin = :loginAdmin,
+                    passwordAdmin = :passwordAdmin
+                WHERE idAdmin = :idAdmin;";
             $data = [
                 ':idAdmin' => $admin->getIdAdmin(),
                 ':loginAdmin' => $admin->getLoginAdmin(),
@@ -44,18 +45,17 @@ Class AdminRepository {
             echo "Erreur Query sur : " . $e->getMessage();
         }
     }
-    // Création d'un nouvel administrateur
 
+    // Création d'un nouvel administrateur
     public function insert(Admin $admin) {
         try {
             $sql = "INSERT INTO admin (loginAdmin, passwordAdmin)
-            VALUES (:loginAdmin, :passwordAdmin);";
+                VALUES (:loginAdmin, :passwordAdmin);";
             $data = [
                 ':loginAdmin' => $admin->getLoginAdmin(),
                 ':passwordAdmin' => $admin->getPasswordAdmin()
             ];
             return $this->pdo->prepare($sql)->execute($data);
-            // return $this->pdo->prepare($sql)->execute();
         } catch (PDOException $e) {
             echo "Erreur Query sur : " . $e->getMessage();
         }
@@ -69,8 +69,4 @@ Class AdminRepository {
         }
     }
 }
-
-
-
-
 ?>

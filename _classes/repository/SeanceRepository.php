@@ -1,6 +1,7 @@
 <?php
 
 class SeanceRepository {
+
     // Attributs
     protected $pdo;
 
@@ -41,15 +42,15 @@ class SeanceRepository {
     public function findBySejour($idSejour) {
         try {
             $sql = "SELECT *
-            FROM seance as sc
-                INNER JOIN soin as so
-                    ON sc.idSoin = so.idSoin
-                INNER JOIN espace as ep
-                    ON so.idEspace = ep.idEspace
-            WHERE idSejour = $idSejour
-            ORDER BY
-                sc.dateSeance ASC,
-                sc.heureSeance ASC;";
+                FROM seance as sc
+                    INNER JOIN soin as so
+                        ON sc.idSoin = so.idSoin
+                    INNER JOIN espace as ep
+                        ON so.idEspace = ep.idEspace
+                WHERE idSejour = $idSejour
+                ORDER BY
+                    sc.dateSeance ASC,
+                    sc.heureSeance ASC;";
             return $this->pdo->query($sql);
         } catch (PDOException $e) {
             echo "Erreur Query sur : " . $e->getMessage();
@@ -112,31 +113,4 @@ class SeanceRepository {
             echo "Erreur Query sur : " . $e->getMessage();
         }
     }
-
-    public function toUpdateStatut() {
-        try {
-            $sql = "SELECT *
-            FROM seance AS sc
-                INNER JOIN soin AS so
-                    ON sc.idSoin = so.idSoin
-            WHERE sc.statutSeance = 'VAL'
-                AND datetime(sc.dateSeance || sc.heureSeance, '+' || so.dureeMinuteSoin || ' minutes')<datetime('now', 'localtime')
-            ;";
-            return $this->pdo->query($sql);
-        } catch (PDOException $e) {
-            echo "Erreur Query sur : " . $e->getMessage();
-        }
-    }
-
-    public function updateStatut(string $idSeance) {
-        try {
-            $sql = "UPDATE seance
-            SET statutSeance = 'CLO'
-            WHERE idSeance = $idSeance;";
-            return $this->pdo->query($sql);
-        } catch (PDOException $e) {
-            echo "Erreur Query sur : " . $e->getMessage();
-        }
-    }
-
 }

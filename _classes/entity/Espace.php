@@ -11,7 +11,6 @@ class Espace {
         $this->nomEspace = $nomEspace;
     }
 
-
     // Getter & Setter
 
     /**
@@ -35,7 +34,6 @@ class Espace {
      */
     public function setNomEspace($nomEspace) {
         $this->nomEspace = $nomEspace;
-
         return $this;
     }
 }

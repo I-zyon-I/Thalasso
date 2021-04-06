@@ -20,9 +20,7 @@ class Seance {
         $this->statutSeance = $statutSeance;
     }
 
-
     // Getter & Setter
-
 
     /**
      * Get the value of idSeance
@@ -45,7 +43,6 @@ class Seance {
      */
     public function setIdSejour($idSejour) {
         $this->idSejour = $idSejour;
-
         return $this;
     }
 
@@ -63,7 +60,6 @@ class Seance {
      */
     public function setIdSoin($idSoin) {
         $this->idSoin = $idSoin;
-
         return $this;
     }
 
@@ -81,7 +77,6 @@ class Seance {
      */
     public function setDateSeance($dateSeance) {
         $this->dateSeance = $dateSeance;
-
         return $this;
     }
 
@@ -99,7 +94,6 @@ class Seance {
      */
     public function setHeureSeance($heureSeance) {
         $this->heureSeance = $heureSeance;
-
         return $this;
     }
 
@@ -117,7 +111,6 @@ class Seance {
      */
     public function setStatutSeance($statutSeance) {
         $this->statutSeance = $statutSeance;
-
         return $this;
     }
 }

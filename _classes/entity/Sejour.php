@@ -20,7 +20,6 @@ class Sejour {
         $this->idClient = $idClient;
     }
 
-
     // Getter & Setter
 
     /**
@@ -29,7 +28,6 @@ class Sejour {
     public function getIdSejour() {
         return $this->idSejour;
     }
-
 
     /**
      * Get the value of dateDebutSejour
@@ -45,7 +43,6 @@ class Sejour {
      */
     public function setDateDebutSejour($dateDebutSejour) {
         $this->dateDebutSejour = $dateDebutSejour;
-
         return $this;
     }
 
@@ -63,7 +60,6 @@ class Sejour {
      */
     public function setDureeJourSejour($dureeJourSejour) {
         $this->dureeJourSejour = $dureeJourSejour;
-
         return $this;
     }
 
@@ -81,7 +77,6 @@ class Sejour {
      */
     public function setVestiaireSejour($vestiaireSejour) {
         $this->vestiaireSejour = $vestiaireSejour;
-
         return $this;
     }
 
@@ -99,7 +94,6 @@ class Sejour {
      */
     public function setStatutSejour($statutSejour) {
         $this->statutSejour = $statutSejour;
-
         return $this;
     }
 
@@ -117,7 +111,6 @@ class Sejour {
      */
     public function setIdClient($idClient) {
         $this->idClient = $idClient;
-
         return $this;
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 class ClientRepository {
+
     // Attributs
     protected $pdo;
 
@@ -21,12 +22,7 @@ class ClientRepository {
 
     public function findBy(string $idClient) {
         try {
-            // $sql = "SELECT * FROM client WHERE idClient = :idClient;";
             $sql = "SELECT * FROM client WHERE idClient = $idClient;";
-            // $data = [
-            //     ':idClient' => $idClient
-            // ];
-            // return $this->pdo->prepare($sql)->execute($data);
             return $this->pdo->query($sql);
         } catch (PDOException $e) {
             echo "Erreur Query sur : " . $e->getMessage();
@@ -94,8 +90,11 @@ class ClientRepository {
 
     function count($recherche) {
         try {
-            // $strClient = "('" . implode("', '", $arrIdClient) . "')";
-            $sql = "SELECT COUNT (*) AS total FROM client WHERE idClient LIKE '$recherche' OR nomClient LIKE '%$recherche%' OR prenomClient LIKE '%$recherche%';";
+            $sql = "SELECT COUNT (*) AS total
+                FROM client
+                WHERE idClient LIKE '$recherche'
+                    OR nomClient LIKE '%$recherche%'
+                    OR prenomClient LIKE '%$recherche%';";
             return $this->pdo->query($sql);
         } catch (PDOException $e) {
             echo "Erreur Query sur : " . $e->getMessage();
@@ -110,5 +109,4 @@ class ClientRepository {
             echo "Erreur Query sur : " . $e->getMessage();
         }
     }
-
 }
