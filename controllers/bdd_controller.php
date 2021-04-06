@@ -3,7 +3,6 @@
     require_once "../vendor/autoload.php";
     require_once "../_config/db.php";
 
-
     $faker = Faker\Factory::create('fr_FR');
 
     // Boucle de remplissage pour la table client
