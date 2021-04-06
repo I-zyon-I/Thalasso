@@ -95,7 +95,7 @@ class SejourRepository {
             echo "Erreur Query sur : " . $e->getMessage();
         }
     }
-    
+
     public function update(Sejour $sejour) {
         try {
             $sql = "UPDATE sejour
