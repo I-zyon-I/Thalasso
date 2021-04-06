@@ -28,8 +28,7 @@
                             </div>
                         <a class='btn button m-2' href='?page=afficheAdmin&id=$id'>Fiche Admin</a>
                         </div>
-                    </div>
-                    
+                    </div>           
 HTML;
             } 
         }

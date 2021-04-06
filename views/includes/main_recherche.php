@@ -88,7 +88,6 @@ HTML;
                             <h4>Information client :</h4>
                             Date de naissance : $client->naissanceClient <br>
                             Mail : $client->mailClient <br>
-
                             <h4>Dossiers du client :</h4>
 HTML;                                   
                 $sejours = $arrSejourCl[$j];
@@ -115,6 +114,7 @@ HTML;
                 echo "</div></div></div>";
                 $j++;
             }
+
             // Pagination
             if (isset($_GET['paging'])) {
                 $paging = $_GET['paging'];
