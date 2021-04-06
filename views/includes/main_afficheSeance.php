@@ -1,16 +1,16 @@
 <?php
 
-    // Affichage des données client et séjour (unique)
-    $nomUpper = strtoupper($seance->nomClient);
-    $dateNaissance = date('d/m/Y', strtotime($seance->naissanceClient));
-    $dateDebut = date('d/m/Y', strtotime($seance->dateDebutSejour));
-    $dateFin = date('d/m/Y', strtotime("$seance->dateDebutSejour +" . $seance->dureeJourSejour - 1 . " day"));
-    $idClient = $seance->idClient;
-    $idSejour = $seance->idSejour;
-    $dateSeance = date('d/m/Y', strtotime($seance->dateSeance));
-    $heureSeance = date('H:i', strtotime($seance->heureSeance));
-    
-    echo <<<HTML
+// Affichage des données client et séjour (unique)
+$nomUpper = strtoupper($seance->nomClient);
+$dateNaissance = date('d/m/Y', strtotime($seance->naissanceClient));
+$dateDebut = date('d/m/Y', strtotime($seance->dateDebutSejour));
+$dateFin = date('d/m/Y', strtotime("$seance->dateDebutSejour +" . $seance->dureeJourSejour - 1 . " day"));
+$idClient = $seance->idClient;
+$idSejour = $seance->idSejour;
+$dateSeance = date('d/m/Y', strtotime($seance->dateSeance));
+$heureSeance = date('H:i', strtotime($seance->heureSeance));
+
+echo <<<HTML
     <div class="container-fluid bg2">
         <div class="container">
         <h1>Fiche séjour</h1>

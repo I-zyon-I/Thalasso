@@ -1,14 +1,14 @@
 <?php
 
-    // Affichage des données client et séjour (unique)
-    $nomUpper = strtoupper($sejour->nomClient);
-    $dateNaissance = date('d/m/Y', strtotime($sejour->naissanceClient));
-    $dateDebut = date('d/m/Y', strtotime($sejour->dateDebutSejour));
-    $dateFin = date('d/m/Y', strtotime("$sejour->dateDebutSejour +" . $sejour->dureeJourSejour - 1 . " day"));
-    $idClient = $sejour->idClient;
-    $idSejour = $sejour->idSejour;
-    
-    echo <<<HTML
+// Affichage des données client et séjour (unique)
+$nomUpper = strtoupper($sejour->nomClient);
+$dateNaissance = date('d/m/Y', strtotime($sejour->naissanceClient));
+$dateDebut = date('d/m/Y', strtotime($sejour->dateDebutSejour));
+$dateFin = date('d/m/Y', strtotime("$sejour->dateDebutSejour +" . $sejour->dureeJourSejour - 1 . " day"));
+$idClient = $sejour->idClient;
+$idSejour = $sejour->idSejour;
+
+echo <<<HTML
     <div class="container-fluid bg1">
         <div class="container ">
         <h1>Fiche séjour</h1>
@@ -41,26 +41,25 @@
                         <h5 class="card-title">Séance(s) :</h5>
 HTML;
                     
-    // Test de l'existence de séances dans le dossier
-    if ($seances) {
-                        
-        // Affichage des séances
-        $jour = "";
-        foreach ($seances as $seance) {
-            
-            // Création d'une ligne 'date' pour chaque nouvelle journée
-            if ($seance->dateSeance != $jour) {
-                echo date('d/m/Y', strtotime($seance->dateSeance)) . "<br>" ;
-            }
-            
-            echo "<a class='btn hover' href='?page=afficheSeance&id=$seance->idSeance'><div>";
-            echo date('H:i', strtotime($seance->heureSeance)) . " : $seance->nomSoin ($seance->dureeMinuteSoin min), espace $seance->nomEspace ($seance->statutSeance)";
-            // echo "<a class='btn button mt-2' href='?page=editSeance&id=$idSejour&soin=$seance->idSoin'>Afficher</a><br>";
-            echo "</div></a><br>";
-            $jour = $seance->dateSeance;
+// Test de l'existence de séances dans le dossier
+if ($seances) {
+                    
+    // Affichage des séances
+    $jour = "";
+    foreach ($seances as $seance) {
+        
+        // Création d'une ligne 'date' pour chaque nouvelle journée
+        if ($seance->dateSeance != $jour) {
+            echo date('d/m/Y', strtotime($seance->dateSeance)) . "<br>" ;
         }
-    } else {
-        echo "Aucune séance<br>";
+        
+        echo "<a class='btn hover' href='?page=afficheSeance&id=$seance->idSeance'><div>";
+        echo date('H:i', strtotime($seance->heureSeance)) . " : $seance->nomSoin ($seance->dureeMinuteSoin min), espace $seance->nomEspace ($seance->statutSeance)";
+        echo "</div></a><br>";
+        $jour = $seance->dateSeance;
     }
-    echo "<a class='btn button mt-2 ' href='?page=editSeance&sejour=$idSejour'>Ajouter</a>";
-    echo "</div></div></div></div></div>";
+} else {
+    echo "Aucune séance<br>";
+}
+echo "<a class='btn button mt-2 ' href='?page=editSeance&sejour=$idSejour'>Ajouter</a>";
+echo "</div></div></div></div></div>";
