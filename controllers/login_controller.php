@@ -1,11 +1,9 @@
 <?php
 
 // Initialisation du tableau des utilisateurs autorisés via la table admin
-
 $adminRepository = new AdminRepository($pdo);
 $_SESSION['admins'] = $adminRepository->findAll()->fetchAll();
 
-// var_dump($_SESSION['admins']);die;
 $message = "";
 
 if (isset($_POST['submitLogin'])) {
@@ -20,7 +18,6 @@ if (isset($_POST['submitLogin'])) {
                 $isAuthenticated = true; 
             }
         }
-        // var_dump($_SESSION['admins']);die;
         if (!$isAuthenticated) {
             $message = "Identifiants Invalides";
         } 

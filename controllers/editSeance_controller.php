@@ -11,8 +11,10 @@ if (isset($_GET['id'])) {
     $idSeance = $_GET['id'];
     $seance = $seanceRepository->findBy($idSeance)->fetch();
     $idSejour = $seance->idSejour;
+
 } else {
     $idSejour = $_GET['sejour'];
+
 }
 $sejourRepository = new SejourRepository($pdo);
 $sejour = $sejourRepository->findBy($idSejour)->fetch();
@@ -34,14 +36,17 @@ if (isset($_POST['submitEdit'])) {
     // Appel de la méthode de modification en fonction de la création ou de la modification d'un séjour
     if ($_POST['requete'] == 'update') {
         $seanceRepository->update($seance);
+
     } elseif ($_POST['requete'] == 'insert') {
         $seanceRepository->insert($seance);
         $idSeance = $seanceRepository->lastInsert();
+
     }
     header("location:?page=afficheSeance&id=$idSeance");
 } elseif (isset($_POST['delete'])) {
     if (isset($_GET['id'])) {
         $seanceRepository->delete($idSeance);
+        
     }
     header("location:?page=afficheSejour&id=$seance->idSejour");
 }

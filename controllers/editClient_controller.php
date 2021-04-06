@@ -25,14 +25,17 @@ if (isset($_POST['submitEdit'])) {
     // Appel de la méthode de modification en fonction de la création ou de la modification d'un client
     if ($_POST['requete'] == 'update') {
         $clientRepository->update($client);
+
     } elseif ($_POST['requete'] == 'insert') {
         $clientRepository->insert($client);
         $idClient = $clientRepository->lastInsert();
+
     }
     header("location:?page=afficheClient&id=$idClient");
 } elseif (isset($_POST['delete'])) {
     if (isset($_GET['id'])) {
         $clientRepository->delete($idClient);
+        
     }
     header("location:?page=listeSejours");
 }

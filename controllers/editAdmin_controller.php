@@ -26,11 +26,12 @@ if (isset($_POST['submitEditLogin'])) {
         
         // Appel de la méthode de modification en fonction de la création ou de la modification d'un Admin
         if ($_POST['requete'] == 'update') {
-            // var_dump($_POST['requete']);die;
             $adminRepository->update($admin);
+
         } elseif ($_POST['requete'] == 'insert') {
             $adminRepository->insert($admin);
             $idAdmin = $adminRepository->lastInsert();
+            
         }
         header("location:?page=afficheAdmin&id=$idAdmin");
     }

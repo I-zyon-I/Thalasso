@@ -34,6 +34,6 @@ foreach ($rechercheCl as $client) {
     $arrSejourCl[] = $sejourRepository->findByClient($idClient)->fetchAll();
 }
 
-// Récupération du nombre de client total
+// Récupération du nombre de client total de la recherche
 $count = $clientRepository->count($recherche)->fetch();
 $total = $count->total;
