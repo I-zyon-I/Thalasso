@@ -29,11 +29,11 @@ if (isset($_GET['paging'])) {
 $rechercheCl = $clientRepository->listeRechercheClients($recherche, $paging)->fetchAll();
 
 // Recupération des séjour du client
-foreach($rechercheCl as $client) {
+foreach ($rechercheCl as $client) {
     $idClient = $client->idClient;
     $arrSejourCl[] = $sejourRepository->findByClient($idClient)->fetchAll();
 }
 
 // Récupération du nombre de client total
-$count = $clientRepository->count($arrIdClient)->fetch();
+$count = $clientRepository->count($recherche)->fetch();
 $total = $count->total;

@@ -4,7 +4,6 @@ require_once "_config/authentication.php";
 
 $soinRepository = new SoinRepository($pdo);
 $soins = $soinRepository->findAll()->fetchAll();
-
 $seanceRepository = new SeanceRepository($pdo);
 
 // Récupération des informations séjour si l'idSejour est présent dans l'URL
