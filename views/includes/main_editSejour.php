@@ -13,8 +13,8 @@ $retour = $sejour ? "?page=afficheSejour&id=$sejour->idSejour" : "?page=afficheC
 echo <<<HTML
 <div class="container-fluid bg1">
     <div class="container">
-        <a class="btn button" href="$retour">Retour</a>
         <h1>$titre de séjour</h1>
+        <a class="btn button retour" href="$retour">Retour</a>
         <div class="bloc">
             <div class="card article">
                 <form class="p-2" method="post">

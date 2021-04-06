@@ -9,12 +9,15 @@ $valNaissance = $client ? $client->naissanceClient : "";
 $valMail = $client ? $client->mailClient : "";
 $requete = $client ? "update" : "insert" ;
 $retour = $client ? "?page=afficheClient&id=$client->idClient" : "?page=listeSejours";
+
+
 echo <<<HTML
+<div class="container-fluid bg3">
     <div class="container">
         <div class="row">
-            <a class="btn button" href="$retour">Retour</a>
-            <h1>$titre de client</h1>
+            <h1><span class="titre">$titre de client</span></h1>
         </div>
+        <a class="btn button retour" href="$retour">Retour</a>
         <div class="bloc">
             <div class="card article">
                 <form class="p-2" method="post">
@@ -36,4 +39,5 @@ echo <<<HTML
             </div>
         </div>
     </div>
+</div>
 HTML;

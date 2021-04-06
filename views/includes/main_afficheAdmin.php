@@ -4,11 +4,12 @@
 $nomUpper = strtoupper($admin->loginAdmin);
 $idAdmin = $admin->idAdmin;
 echo <<<HTML
+<div class="container-fluid bg4">   
     <div class="container">
-        <h1>Fiche Admin</h1>
+        <h1>Fiche Utilisateur</h1>
         <div class="bloc">
             <div class="card mb-2">
-                <div class="card-body bg-success">
+                <div class="card-body focus">
                     <h5 class="card-title">Admin :</h5>
                     Admin n° $admin->idAdmin<br>
                     Identifiant : $nomUpper<br>
@@ -18,4 +19,5 @@ echo <<<HTML
             </div>
         </div>
     </div>
+</div>   
 HTML;

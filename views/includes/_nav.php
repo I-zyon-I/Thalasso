@@ -15,21 +15,16 @@
         if (isset($id_session)) {
             echo <<<HTML
         <div class="input-group col-4">
-        <button class="btn btn-outline-light dropdown-toggle me-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">Administration</button>
-            <ul class=" dropdown-menu">
+        <button class="btn btn-outline-light dropdown-toggle me-3 " type="button" data-bs-toggle="dropdown" aria-expanded="false">Administration et Gestion</button>
+            <ul class="dropdown-menu dropdown-menu-light">
                 {$hbt->bt4Li("?page=listeSejours", "Séjours")} 
-                {$hbt->bt4Li("?page=listeAdmins", "Administateurs")} 
+                {$hbt->bt4Li("?page=listeAdmins", "Utilisateurs")} 
                 {$hbt->bt4Li("?page=editClient", "Nouveau client")} 
             </ul>
             <form class="d-flex" action="?page=recherche" method="GET">
                 <input type="hidden" name="page" value="recherche">
-<<<<<<< HEAD
                 <input class="form-control search" type="search" id="search" name="search" placeholder="Rechercher" aria-label="Search">
                 <button class="btn btn-light"  type="submit"><i class="bi bi-search"></i></button>
-=======
-                <input class="form-control me-2" type="search" id="search" name="search" placeholder="Rechercher" aria-label="Search">
-                <button class="btn button" type="submit">Rechercher</button>
->>>>>>> 13e5aa25f43ea9624dffa0249c63d545368a8c55
             </form>
         </div>
         <a href="?page=home&logout" class="btn button offset-4"><i class="bi bi-box-arrow-left"></i> Logout</a>

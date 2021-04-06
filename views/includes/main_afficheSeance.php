@@ -39,7 +39,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="card article bg-success">
+                <div class="card article focus">
                     <div class="card-body">
                         <h5 class="card-title">Séance :</h5>
                         Id : $seance->idSeance<br>

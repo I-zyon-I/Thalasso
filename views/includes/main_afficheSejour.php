@@ -25,7 +25,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="card article mb-4 bg-success">
+                <div class="card article mb-4 focus">
                     <div class="card-body">
                         <h5 class="card-title">Séjour :</h5>
                         Dossier n° $sejour->idSejour<br>

@@ -6,10 +6,13 @@ $valId = $admin ? $admin->idAdmin : "";
 $valLogin = $admin ? $admin->loginAdmin : "";
 // $valPassword = $admin ? $admin->passwordAdmin : "";
 $requete = $admin ? "update" : "insert" ;
+$retour = $admin ? "?page=afficheAdmin&id=$admin->idAdmin" : "?page=listeSejours";
 
 echo <<<HTML
+<div class="container-fluid bg4">
     <div class="container">
-        <h1>$titre d'Admin</h1>
+        <h1>$titre d'Utilisateur</h1>
+        <a class="btn button retour" href="$retour">Retour</a>
         <div class="bloc">
             <div class="card article">
                 <form method="post">
@@ -24,6 +27,7 @@ echo <<<HTML
             </div>
         </div>
     </div>
+</div>
 HTML;
 
 ?>

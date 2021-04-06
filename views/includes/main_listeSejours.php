@@ -1,9 +1,5 @@
 <div class="container-fluid bg1">
-<<<<<<< HEAD
     <div class="container">
-=======
-<div class="container">
->>>>>>> 13e5aa25f43ea9624dffa0249c63d545368a8c55
     <h1>Liste des séjours</h1>
     <div class="bloc">
     <!-- Liste des dossiers -->

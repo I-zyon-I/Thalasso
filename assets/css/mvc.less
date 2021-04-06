@@ -13,11 +13,16 @@
 }
 .bloc{
     .degradDown();
+    margin: 50px 0px;;
     padding: 50px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
-    
 }
+
+.card{
+    border: none;
+}
+
 .article{
     padding: 25px;
     border-radius: 10px;
@@ -53,6 +58,10 @@
     }
 }
 
+.retour{
+    margin-bottom: 5px;
+}
+
 /* ---Body & Général--------------------------------------------------------------------- */
 
 body{
@@ -69,10 +78,17 @@ h1{
     text-align: center;
 }
 
+h4{
+    color: @texte;
+    padding: 25px 0px;
+}
+
+.titre{
+    color:@blanc;
+}
 
 
 /* ---Navbar--- */
-
 .navbar{
     .degradDown();
     width: 100%;
@@ -112,9 +128,7 @@ footer{
 }
 
 
-
 /* ---Accueil---Header-------------------------------------------------------------------- */
-
 
 .header{
     width: 100%;
@@ -129,6 +143,13 @@ footer{
     padding-top:350px;
 
 }
+
+/* ---Contact--------------------------------------------------------------------------- */
+
+.contact{
+    padding-top: 150px;
+}
+
 
 /* ---login---Header-------------------------------------------------------------------- */
 
@@ -166,10 +187,20 @@ footer{
     margin-top: 50px;
 }
 
-.bg-success{
+.focus{
+    border-radius: 10px;
     .degradUp();
 }
 
+/* ------Background-------------------------------------------------------------------- */ 
+
+
+.bg0{
+    background: url(/assets/imgs/servicios-banner.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 1300px;
+}
 
 .bg1{
     background: url(/assets/imgs/bgcontactjpg_5ee2353cea7c8.jpg);
@@ -192,4 +223,14 @@ footer{
     background-repeat: no-repeat;
     height: 1500px;
 }
+
+.bg4{
+    background: url(/assets/imgs/Admin.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 1500px;
+}
+
+
 

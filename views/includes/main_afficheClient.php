@@ -10,10 +10,10 @@ $idClient = $client->idClient;
 echo <<<HTML
 <div class="container-fluid bg3">
     <div class="container">
-        <h1>Fiche client</h1>
+        <h1><span class="titre">Fiche client</span></h1>
         <div class="bloc">
             <div class="card mb-2">
-                <div class="card-body bg-success">
+                <div class="card-body focus">
                     <h5 class="card-title">Client :</h5>
                     Client n° $client->idClient<br>
                     Nom : $nomUpper<br>

@@ -1,5 +1,6 @@
+<div class="container-fluid bg1">
 <div class="container">
-    <h1>Resultat pour "<?= $recherche ?>"</h1>
+    <h1>Résultats pour "<?= $recherche ?>"</h1>
     <div class="bloc">
     <!-- Liste des dossiers -->
     <?php
@@ -98,7 +99,7 @@ HTML;
                         $nomUpper = strtoupper($sejour->nomClient);
                         echo "<div class='accordion-item light'>";
                         echo <<<HTML
-                        <a href="?page=afficheSejour&id=$sejour->idSejour">[$sejour->statutSejour] Dossier n°$sejour->idSejour (début de séjour : $dateDebut, durée : $sejour->dureeJourSejour jour(s))</a>
+                        <a class="btn" href="?page=afficheSejour&id=$sejour->idSejour">[$sejour->statutSejour] Dossier n°$sejour->idSejour (début de séjour : $dateDebut, durée : $sejour->dureeJourSejour jour(s))</a>
 HTML;
                         echo "</div>";
                     }
@@ -143,3 +144,4 @@ HTML;
         echo "</div></div></div>";
     ?>
     </div>
+</div>
