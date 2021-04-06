@@ -16,7 +16,7 @@
         <h1>Fiche séjour</h1>
             <div class="bloc">
                 <div class="card article mb-4">
-                    <a class='btn mt-2' style="text-align: left;" href='?page=afficheClient&id=$idClient'>
+                    <a class='btn mt-2 hover' style="text-align: left;" href='?page=afficheClient&id=$idClient'>
                         <div class="card-body">
                             <h5 class="card-title">Client :</h5>
                             Client n° $seance->idClient<br>
@@ -28,7 +28,7 @@
                     </a>
                 </div>
                 <div class="card article mb-4">
-                    <a class='btn mt-2' style="text-align: left;" href='?page=afficheSejour&id=$idSejour'>
+                    <a class='btn mt-2 hover' style="text-align: left;" href='?page=afficheSejour&id=$idSejour'>
                         <div class="card-body">
                             <h5 class="card-title">Séjour :</h5>
                             Dossier n° $seance->idSejour<br>

@@ -4,7 +4,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse col-9 justify-content-between" id="navbarsExampleDefault">
+    <div class="collapse navbar-collapse col-8 justify-content-between" id="navbarsExampleDefault">
     
         <ul class="navbar-nav col-2 offset-1">
             <?= $hbt->bt4Li("?page=home", "Accueil") ?>
@@ -15,7 +15,7 @@
         if (isset($id_session)) {
             echo <<<HTML
         <div class="input-group col-4">
-        <button class="btn btn-outline-light dropdown-toggle me-3 " type="button" data-bs-toggle="dropdown" aria-expanded="false">Administration et Gestion</button>
+        <button class="btn btn-outline-light dropdown-toggle me-3 " type="button" data-bs-toggle="dropdown" aria-expanded="false">Administration</button>
             <ul class="dropdown-menu dropdown-menu-light">
                 {$hbt->bt4Li("?page=listeSejours", "Séjours")} 
                 {$hbt->bt4Li("?page=listeAdmins", "Utilisateurs")} 
@@ -34,7 +34,7 @@ HTML;
     ?>
         
     </div>
-    <div class="meteo col-2 offset-1">
+    <div class="meteo col-3 offset-1">
         <h3 id="city-name"></h3>
         <img src="" id="current-weather-icon">
         <h6 id="current-weather"></h6>

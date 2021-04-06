@@ -34,7 +34,7 @@ foreach ($sejours as $sejour) {
     $dateSejour = date('d/m/Y', strtotime($sejour->dateDebutSejour));
     $idSejour = $sejour->idSejour;
     echo <<<HTML
-        <a class="btn mt-2" href="?page=afficheSejour&id=$idSejour">
+        <a class="btn mt-2 hover" href="?page=afficheSejour&id=$idSejour">
             <div>
                 [$sejour->statutSejour] N° $sejour->idSejour ($dateSejour)
             </div>

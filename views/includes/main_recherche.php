@@ -6,7 +6,7 @@
     <?php
     // Test de l'existence des dossiers
     if ($sejours) {
-        echo "<h2>Resultat pour les séjours</h2>";
+        echo "<h2>Résultats pour les séjours</h2>";
         // Création d'un accordéon
         echo "<div class='accordion' id='accordionExample'>";
 
@@ -71,7 +71,7 @@ HTML;
     <?php
             $j = 0;
         if ($rechercheCl) {
-            echo "<h2>Resultat pour les client</h2>";
+            echo "<h2>Résultats pour les clients</h2>";
             echo "<div class='accordion' id='accordion'>";
             foreach($rechercheCl as $client){
                 $id = $client->idClient;
@@ -97,9 +97,13 @@ HTML;
                         $dateDebut = date('d/m/Y', strtotime($sejour->dateDebutSejour));
                         $dateFin = date('d/m/Y', strtotime("$sejour->dateDebutSejour +$sejour->dureeJourSejour day"));
                         $nomUpper = strtoupper($sejour->nomClient);
-                        echo "<div class='accordion-item light'>";
+                        echo "<div>";
                         echo <<<HTML
-                        <a class="btn" href="?page=afficheSejour&id=$sejour->idSejour">[$sejour->statutSejour] Dossier n°$sejour->idSejour (début de séjour : $dateDebut, durée : $sejour->dureeJourSejour jour(s))</a>
+                        <a class="btn hover" href="?page=afficheSejour&id=$sejour->idSejour">
+                            <div>
+                                [$sejour->statutSejour] Dossier n°$sejour->idSejour (début de séjour : $dateDebut, durée : $sejour->dureeJourSejour jour(s))
+                            </div>
+                        </a>
 HTML;
                         echo "</div>";
                     }
